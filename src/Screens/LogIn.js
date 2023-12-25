@@ -14,7 +14,7 @@ import Container from "@mui/material/Container";
 // import { logDOM } from "@testing-library/react";
 
 
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 import { useState } from "react";
@@ -31,7 +31,7 @@ export default function LogIn() {
   const [passError, setPassError] = useState("");
   const [passHelper, setPassHelper] = useState("");
   const { logIn } = useUserAuth();
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -52,10 +52,9 @@ export default function LogIn() {
       try {
         await logIn(email, password);
         console.log("logged In successfully");
+        navigate("/Home");
       } catch (err) {
-        setError(err.message);
-        // navigate("/SignIn");
-        setError("");
+        setError("incorrect Emai Id or Password");
       }
     }
   };
@@ -75,12 +74,20 @@ export default function LogIn() {
             color: "#fff",
             fontSize: "1.8em",
             fontWeight: 500,
-            marginBottom: "14%",
+            marginBottom: "8%",
           }}
         >
           Sign in
         </text>
-        <Box component="form" noValidate sx={{ mt: 1 }}>
+        <Box component="form"  noValidate sx={{ mt: 1 }}>
+        <text
+          style={{
+            color: "#f00",
+            fontSize: "1em",
+          }}
+        >
+          {error}
+        </text>
           <TextField
             error={emailError}
             helperText={emailHelper}
@@ -128,7 +135,7 @@ export default function LogIn() {
       <text
         style={{ color: "#00f" }}
         onClick={() => {
-        //   navigate("/ForgotPassword");
+          navigate("/ForgotPassword");
         }}
       >
         Forgot password?

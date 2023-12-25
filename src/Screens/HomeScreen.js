@@ -1,59 +1,67 @@
-import * as React from "react";
+
+import * as React from 'react';
+import Box from '@mui/joy/Box';
+import Drawer from '@mui/joy/Drawer';
+import Button from '@mui/joy/Button';
+import List from '@mui/joy/List';
+import Divider from '@mui/joy/Divider';
+import ListItem from '@mui/joy/ListItem';
+import ListItemButton from '@mui/joy/ListItemButton';
+
+
+// import Box from '@mui/joy/Box';
+// import Drawer from '@mui/joy/Drawer';
+// import Button from '@mui/joy/Button';
+// import List from '@mui/joy/List';
+// import Divider from '@mui/joy/Divider';
+// import ListItem from '@mui/joy/ListItem';
+// import ListItemButton from '@mui/joy/ListItemButton';
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 // import { useNavigate, createSearchParams } from "react-router-dom";
 // import { getDatabase, ref, get, child } from "firebase/database";
 // import { useState,useRef } from "react";
+const HomeScreen = () => {
+  const [open, setOpen] = React.useState(false);
 
-const Splash = () => {
-//   const auth = getAuth();
-//   const navigate = useNavigate();
-//   const isCalledRef = React.useRef(false);
+  const toggleDrawer = (inOpen) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
 
-//   const navToHome = (details) => {
-//     setTimeout(navigate("/Notices", { state: details }), 3000);
-//   };
-
-//   React.useEffect(() => {
-//     if (!isCalledRef.current) {
-//       onAuthStateChanged(auth, (user) => {
-//         if (user) {
-//           const dbRef = ref(getDatabase());
-//           get(child(dbRef, `users/${user.uid}`))
-//             .then((snapshot) => {
-//               if (snapshot.exists()) {
-//                 // console.log(snapshot.val())
-//                 const data = snapshot.val();
-//                 console.log(data);
-//                 const details = JSON.stringify(snapshot.val());
-//                 // navToHome(details);
-//               } else {
-//                 console.log("No data available");
-//               }
-//             })
-//             .catch((error) => {
-//               console.log(error);
-//             });
-//         } else {
-//           console.log("no current user");
-//         //   navigate("/SignIn");
-//         }
-//       });
-//     }
-//   });
+    setOpen(inOpen);
+  };
 
   return (
-    <div
-      style={{
-        color: "#000",
-        height: "100%",
-        width: "100%",
-        backgroundColor: "#000",
-        // backgroundImage: `url(${SplashScreen})`,
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    ></div>
+    <Box sx={{ display: 'flex' }}>
+      <Button variant="outlined" color="neutral" onClick={toggleDrawer(true)}>
+        Open drawer
+      </Button>
+      <Drawer open={open} onClose={toggleDrawer(false)}>
+        <Box
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
+        >
+          <List>
+            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text) => (
+              <ListItem key={text}>
+                <ListItemButton>{text}</ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+          <List>
+            {['All mail', 'Trash', 'Spam'].map((text) => (
+              <ListItem key={text}>
+                <ListItemButton>{text}</ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
+    </Box>
   );
 };
 
-export default Splash;
+export default HomeScreen;
