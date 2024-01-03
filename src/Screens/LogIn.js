@@ -1,24 +1,18 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import { Button } from "@mui/material";
+import { Button, AppBar, Toolbar} from "@mui/material";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from "@mui/material/FormControlLabel";
-// import Checkbox from "@mui/material/Checkbox";
-// import Link from "@mui/material/Link";
-// import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import { logDOM } from "@testing-library/react";
-
-
+import TopBar from "../Components/Toolbar"; 
+import Styles from '../Css/LogInPg.module.css';
 import { useNavigate } from "react-router-dom";
 
 
 import { useState } from "react";
 import { useUserAuth } from "../userAuth/UserAuth";
+
 // import { useUserAuth } from "../context/UserAuthContext";
 // import logo512 from "../Assets/logo512.png";
 
@@ -60,86 +54,75 @@ export default function LogIn() {
   };
 
   return (
-    <Container >
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <text
-          style={{
-            color: "#fff",
-            fontSize: "1.8em",
-            fontWeight: 500,
-            marginBottom: "8%",
-          }}
-        >
-          Sign in
-        </text>
-        <Box component="form"  noValidate sx={{ mt: 1 }}>
-        <text
-          style={{
-            color: "#f00",
-            fontSize: "1em",
-          }}
-        >
-          {error}
-        </text>
-          <TextField
-            error={emailError}
-            helperText={emailHelper}
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            style={{ backgroundColor: "#eee", borderRadius: 7 }}
-          />
-          <TextField
-            error={passError}
-            helperText={passHelper}
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            style={{ backgroundColor: "#eee", borderRadius: 7 }}
-          />
+    <div className={Styles.LogInPage}  >
+      <TopBar/>
 
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-            onClick={handleSubmit}
+      <div className={Styles.Mainbox}>
+
+
+        <div className={Styles.formfeildBox} >
+          <text
+          className={Styles.loginHeading}
           >
-            Sign In
-          </Button>
-        </Box>
-      </Box>
-      <text
-        style={{ color: "#00f" }}
-        onClick={() => {
-          navigate("/ForgotPassword");
-        }}
-      >
-        Forgot password?
-      </text>
-    </Container>
+            Login
+          </text>
+          <div className={Styles.formfeild} component="form"  noValidate sx={{ mt: 1 }}>
+          <text
+            style={{
+              color: "#f00",
+              fontSize: "1em",
+            }}
+          >
+            {error}
+          </text>
+            <TextField
+              error={emailError}
+              helperText={emailHelper}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              style={{ backgroundColor: "#eee", borderRadius: 7, marginTop:"20px", marginBottom:"20px"  }}
+            />
+            <TextField
+              error={passError}
+              helperText={passHelper}
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              style={{ backgroundColor: "#eee", borderRadius: 7, marginTop:"20px", marginBottom:"20px" }}
+            />
+
+            <button
+              type="submit"
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={handleSubmit}
+              className={Styles.Proceed}
+            >
+              Proceed
+            </button>
+
+          </div>
+        </div>
+        <div className={Styles.Imagebox}></div>
+
+      </div>
+    </div>
   );
 }

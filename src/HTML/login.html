@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
+    <link href="../Css/login.css" rel="stylesheet" />
+    <title>NS Login</title>
+    <script src="./js/login.js"></script>
+
+</head>
+
+<body>
+    <section class="navigation">
+        <div id="logo"><a href="index.html"><img src="./assets/namma.png"></a></div>
+        <span class="navbar">Namma Society</span>
+    </section>
+
+    <div class="login-whitebg"></div>
+    <span class="login-heading">Login</span>
+    <form>
+
+        <input type="text" placeholder="Enter your User ID" class="userid-input" id="userIdInput" required></input>
+        <div id="userIdError"></div>
+        <input type="password" placeholder="Enter your Password" class="password-input" id="passwordInput" required></input>
+        <div id="passwordError"></div>
+        <div class="btn-position">
+            <button class="proceed-btn" onclick="showId()">Proceed</button>
+
+        </div>
+        <a href="./forgot_password.html" class="forgot-password">Forgot Password ?</a>
+    </form>
+    <div>
+        <img class="loginpg-img" src="./assets/loginpg.png"></img>
+    </div>
+</body>
+
+</html>

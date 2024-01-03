@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+    <link href="./css/modifylevel3.css" rel="stylesheet">
+    <title>Modify Admin Level-3</title>
+    <script src="./js/modifylevel1.js"></script>
+
+</head>
+
+<body>
+    <section class="navbar">
+        <div class="logo">
+            <img src=".assets/namma.png" alt="Namma Society Logo">
+        </div>
+        <div class="status-bar"></div>
+        <span class="building">Raheja Vistas - Mumbai</span>
+        <span class="year">2023-2024</span>
+
+
+        <div class="year-drop">
+
+            <img src="assets/down-arrow.png">
+            <div class="year-dropdown-content">
+                <a href="#">2022-2023</a>
+                <a href="#">2023-2024</a>
+                <a href="#">2024-2025</a>
+            </div>
+        </div>
+
+        <div class="society-drop">
+            <img src="assets/down-arrow.png">
+            <div class="society-dropdown-content">
+                <a href="#">building 1</a>
+                <a href="#">building 2</a>
+                <a href="#">building 3</a>
+            </div>
+
+        </div>
+        <span class="finance">Financial Year</span>
+        <span class="name">Saroja S.</span>
+        <span class="super">Super Admin</span>
+        <div class="b-icon">
+            <div class="building-icon"><img src="assets/building.png"></div>
+        </div>
+        <div class="profile-icon"></div>
+        <span class="s-icon">S</span>
+    </section>
+
+
+    <section class="menu">
+        <div class="side-menu"></div>
+        <span class="menu-head">MENU
+            <div class="search-container">
+                <input class="search-bar" type="search" placeholder="Search">
+            </div>
+        </span>
+        <div class="logo">
+            <a href="index.html"><img src="./assets/namma.png" alt="Namma Logo" class="logo-img"></a>
+        </div>
+
+        <span class="namma"> Namma Society</span>
+        <span class="dashboard"><a href="/super_admin.html">Dashboard</a></span>
+        <span class="administrator">Administrator</span>
+        <span class="society">Society</span>
+        <span class="operations">Operations</span>
+        <span class="reports">Reports</span>
+        <span class="utility">Utility</span>
+        <span class="logout-d">Logout</span>
+        <div class="icon-circle"></div>
+
+        <div class="dash-icon">
+            <img src="assets/dashboard.png">
+        </div>
+
+        <div class="admin-icon">
+            <div class="ad-image-container">
+                <img src="assets/admin.png" alt="Admin Icon" class="ad-hover-trigger">
+                <div class="ad-dropdown-content">
+                    <a href="admin_user.html">User</a>
+                    <a href="user_unlock.html">User Unlock</a>
+                    <a href="adminuser_list.html">Admin & User List</a>
+                    <a href="accounting_groups.html">Accounting Groups</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="society-icon">
+            <img src="assets/society.png">
+        </div>
+
+        <div class="operation-icon">
+            <img src="assets/operations.png">
+        </div>
+
+        <div class="reports-icon">
+            <img src="assets/reports.png">
+        </div>
+
+        <div class="utility-icon">
+            <img src="assets/utility.png">
+        </div>
+
+        <div class="logout-icon">
+            <img src="assets/log-out.png">
+        </div>
+
+        <span class="modifyadmin-head">Administrator >> Admin and User Login >> Level 3: modify</span>
+        <div class="data"></div>
+        <span class="modifyadmin-heading">Modify Admin : Level 3</span>
+        <div class="modifyadmin-search-container">
+            <input class="modifyadmin-search-bar" type="search" placeholder="Search User ID/ User Name">
+        </div>
+
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="admin-btn">Administrator
+                <div class="arrow">&#9660;</div>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Sr. no</th>
+                            <th>Account Group</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>EMPLOYEE</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>USERS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>CHANGE PASSWORD</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>RESET PASSWORD</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>ACCESS LEVEL MAP</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>06</td>
+                            <td>ACCOUNTING GROUPS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>07</td>
+                            <td>LOOKUP</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>08</td>
+                            <td>MENU GROUPS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>09</td>
+                            <td>SYS PARAMETERS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>BACKUP DATA</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>DATA TRANSFER</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="society-btn">Society
+                <div class="arrow">&#9660;</div>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Sr. no</th>
+                            <th>Account Group</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>SOCIETY</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>MEMBERS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>BILLING HEADS UPDATE</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>OPENING BALANCES</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>COST CENTER OP</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>06</td>
+                            <td>MEMBERS UPLOAD</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>07</td>
+                            <td>SUBLEDGER MAP</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>08</td>
+                            <td>PRE RECONCILIATION</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>09</td>
+                            <td>PROVISIONS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>RECON DATE</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>BUDGET</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="operation-btn">Operation
+                <div class="arrow">&#9660;</div>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Sr. no</th>
+                            <th>Account Group</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>VOUCHER ENTRY</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>MONTHLY DATA</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>CHEQUE RETURN</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>MODIFY DUE DATE</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>INVOICE GENERATE</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>06</td>
+                            <td>INVOICE GENERATE - other</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>07</td>
+                            <td>INVOICE SEARCH</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>08</td>
+                            <td>RECONCILIATION</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>09</td>
+                            <td>EDIT RECONCILIATION</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="reports-btn">Reports
+                <div class="arrow">&#9660;</div>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Sr. no</th>
+                            <th>Account Group</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>AD-HOC REPORTS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>PAY-IN-SLIP</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>INVOICES</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>RECEIPTS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>GENERAL RECEIPT</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>06</td>
+                            <td>BANK / CASH BOOK</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>07</td>
+                            <td>GENERAL LEDGER</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>08</td>
+                            <td>MEMBER LEDGER</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>09</td>
+                            <td>MEMBERS OS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>TRAIL BALANCE</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>RECEIPTS & PAYMENTS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>TRANSACTION SUMMARY</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>JOURNAL VOUCHER</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>DEBIT / CREDIT NOTE</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>CHEQUE RETURN LIST</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>PAYMENTS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>RECONCILIATION</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>BALANCE SHEET</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>SOCIETY DETAILS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>MEMBERS LIST</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>SUB LEDGER</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>SUB LEDGER OUTSTANDING</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>PURCHASE / SALE REGISTER</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>BUDGET REPORT</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="utility-btn">Utility
+                <div class="arrow">&#9660;</div>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Sr. no</th>
+                            <th>Account Group</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>BATCH PROCESS - MAKER</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>BATCH PROCESS - CHECKER</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>DOWNLOAD INVOICES</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>ALIE RECEIPTS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>ALIE PAYMENTS</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>06</td>
+                            <td>COST CENTER RECON</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>07</td>
+                            <td>WEB MAIL</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

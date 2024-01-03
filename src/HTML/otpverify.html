@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
+    <link href="./css/otpverify.css" rel="stylesheet" />
+    <title>NS Login</title>
+    <script src="./js/otpverify.js"></script>
+
+</head>
+
+<body>
+    <section class="navigation">
+        <div id="logo"><a href="index.html"><img src="./assets/namma.png"></a></div>
+        <span class="navbar">Namma Society</span>
+    </section>
+
+    <div class="fp-whitebg"></div>
+    <span class="fp-heading">Forgot Password ?</span>
+    <form>
+
+        <input type="text" placeholder="Enter your User ID" class="userid-input" id="userIdInput" required></input>
+        <div class="btn-position">
+            <button class="getotp-btn" onclick="sendEmail()">Get OTP</button>
+        </div>
+    </form>
+    <div>
+        <img class="fppg-img" src="./assets/loginpg.png"></img>
+    </div>
+</body>
+
+</html>

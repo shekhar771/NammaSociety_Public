@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
+    <link href="./css/admin_user.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./js/admin_user.js"></script>
+    <title>Admin-User</title>
+</head>
+
+<body>
+    <section class="navbar">
+        <div class="logo">
+            <img src=".assets/namma.png" alt="Namma Society Logo">
+        </div>
+        <div class="status-bar"></div>
+        <span class="building">Raheja Vistas - Mumbai</span>
+        <span class="year">2023-2024</span>
+        
+        
+        <div class="year-drop">
+            
+            <img src="assets/down-arrow.png">
+            <div class="year-dropdown-content">
+              <a href="#">2022-2023</a>
+              <a href="#">2023-2024</a>
+              <a href="#">2024-2025</a>
+            </div>
+          </div>
+
+        <div class="society-drop">
+            <img src="assets/down-arrow.png">
+            <div class="society-dropdown-content">
+                <a href="#">building 1</a>
+                <a href="#">building 2</a>
+                <a href="#">building 3</a>
+              </div>
+        
+        </div>
+        <span class="finance">Financial Year</span>
+        <span class="name">Saroja S.</span>
+        <span class="super">Super Admin</span>
+        <div class="b-icon">
+            <div class="building-icon"><img src="assets/building.png"></div>
+        </div>
+        <div class="profile-icon"></div>
+            <span class="s-icon">S</span>
+    </section>
+    
+        
+    <section class="menu">
+        <div class="side-menu"></div>
+        <span class="menu-head">MENU
+            <div class="search-container">
+                <input class="search-bar" type="search" placeholder="Search">
+            </div>
+        </span>
+        <div class="logo">
+            <a href="index.html"><img src="./assets/namma.png" alt="Namma Logo" class="logo-img"></a>
+        </div>
+            
+        </div>
+        <span class="namma"> Namma Society</span>
+        <span class="dashboard">Dashboard</span>
+        <span class="administrator">Administrator</span>
+        <span class="society">Society</span>
+        <span class="operations">Operations</span>
+        <span class="reports">Reports</span>
+        <span class="utility">Utility</span>
+        <span class="logout-d">Logout</span>
+        <div class="icon-circle"></div>
+        
+         <div class="dash-icon">
+            <img src="assets/dashboard.png">
+        </div>
+        
+        <div class="admin-icon">
+            <div class="ad-image-container">
+                <img src="assets/admin.png" alt="Admin Icon" class="ad-hover-trigger">
+                <div class="ad-dropdown-content">
+                    <a href="admin_user.html">User</a>
+                    <a href="user_unlock.html">User Unlock</a>
+                    <a href="adminuser_list.html">Admin & User List</a>
+                    <a href="#">Accounting Groups</a>
+                </div>
+            </div>
+        </div>
+        
+       
+            <div class="society-icon">
+            <img src="assets/society.png"></div>
+        </div>
+        
+        <div class="operation-icon">
+            <img src="assets/operations.png"></div>
+        </div>
+        
+        <div class="reports-icon">
+            <img src="assets/reports.png"></div>
+        </div>
+        
+        <div class="utility-icon">
+            <img src="assets/utility.png"></div>
+
+        <div class="logout-icon">
+            <img src="assets/log-out.png"></div>    
+            
+        </div>
+
+    </section>
+        <span class="admin-user-head">Administrator >> User</span>
+        <section class="user-box"></section>
+        <div class="data"></div>
+       
+        <span class="users-heading">USERS</span>
+        <form>   
+        <label class="userid_text">User ID:</label>
+        <input type="text" placeholder="Saroja_9827" class="userid_input"></input>
+        <label class="username_text">User ID:</label>
+        <input type="text" placeholder="Saroja" class="username_input"></input>
+        <label class="password_text">Password:</label>
+        <input type="password" placeholder="********" class="password_input"></input>
+        <label class="usertype_text">User Type:</label>
+        <input type="dropdown" placeholder="Select" class="usertype_input"></input>
+        <div class="t-dropdown-block">
+            <div class="t-dropdown-select">
+              <input type="text"  class="t-dropdown-input" placeholder="Select" />
+              <span class="t-select-btn">
+            </span>
+            </div>
+            <ul class="t-dropdown-list">
+              <li class="t-dropdown-item">Admin</li>
+              <li class="t-dropdown-item">Society User</li>
+              
+            </ul>
+          </div>
+       
+        <label class="accesslevel_text">User Access Level:</label>
+        <div class="custom-dropdown-block">
+            <div class="custom-dropdown-select">
+              <input type="text" class="custom-dropdown-input" placeholder="Select" />
+              <span class="custom-select-btn"></span>
+            </div>
+            <ul class="custom-dropdown-list">
+              <li class="custom-dropdown-item">Level 1</li>
+              <li class="custom-dropdown-item">Level 2</li>
+              <li class="custom-dropdown-item">Level 3</li>
+            </ul>
+          </div>
+
+
+
+    <div class="searchbtn-position">
+    <button class="search-btn">SEARCH</button>
+    </div>
+    <div class="resetbtn-position">
+        <button class="reset-btn" >RESET</button>
+        </div>
+        </div>
+        
+    </div>
+    </form>
+</body>
+
+</html>
