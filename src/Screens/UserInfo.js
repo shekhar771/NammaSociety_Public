@@ -23,6 +23,7 @@ const UserInfo = () => {
         <input type="password" placeholder="********" class={Style.password_input}></input>
         <label className={Style.usertype_text}>User Type:</label>
         <label className={Style.accesslevel_text}>User Access Level:</label>
+      <div className='usertype_input'>
         <Select
       placeholder="Select"
       
@@ -33,6 +34,12 @@ const UserInfo = () => {
         top: 660,
         left: 82,
         backgroundColor:'#E6F5F1',
+        border: '1px solid #AFAFAF',
+        boxShadow: '5px 5px 8px 2px rgba(201, 199, 199, 0.8)',
+        fontFamily: 'Inter, sans-serif',
+        fontWeight: 'normal',
+        fontSize: '24px',
+        color: '#AFAFAF',
         [`& .${selectClasses.indicator}`]: {
           transition: '0.2s',
           [`&.${selectClasses.expanded}`]: {
@@ -45,6 +52,7 @@ const UserInfo = () => {
       <Option value="Society User">Society User</Option>
       
     </Select>
+    </div>
 
       <Select
       
@@ -53,9 +61,15 @@ const UserInfo = () => {
       sx={{
         width: 628,
         height: 78,
-        top: 679,
+        top: 700,
         left: 82,
         backgroundColor:'#E6F5F1',
+        border: '1px solid #AFAFAF',
+        boxShadow: '5px 5px 8px 2px rgba(201, 199, 199, 0.8)',
+        fontFamily: 'Inter, sans-serif',
+        fontWeight: 'normal',
+        fontSize: '24px',
+        color: '#AFAFAF',
         [`& .${selectClasses.indicator}`]: {
           transition: '0.2s',
           [`&.${selectClasses.expanded}`]: {
