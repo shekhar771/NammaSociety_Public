@@ -4,18 +4,30 @@ import Style from '../Css/UserInfo.module.css';
 const UserInfo = () => {
   return (
     <div className={Style.body}>
-    <div className={Style.admin_user_head}>Administrator >> User</div>
-        <section className="user_box"></section>
-        <div className={Style.data}></div>
-       
-        <div className={Style.users_heading}>USERS</div>
-        <form>   
+      <div className={Style.admin_user_head}>Administrator User</div>
+      <section className='user_box'></section>
+      <div className={Style.data}></div>
+
+      <div className={Style.users_heading}>USERS</div>
+      <form>
         <label className={Style.userid_text}>User ID:</label>
-        <input type="text" placeholder="Saroja_9827" className={Style.userid_input}></input>
+        <input
+          type='text'
+          placeholder='Saroja_9827'
+          className={Style.userid_input}
+        ></input>
         <label className={Style.username_text}>User Name:</label>
-        <input type="text" placeholder="Saroja" className={Style.username_input}></input>
+        <input
+          type='text'
+          placeholder='Saroja'
+          className={Style.username_input}
+        ></input>
         <label className={Style.password_text}>Password:</label>
-        <input type="password" placeholder="********" class={Style.password_input}></input>
+        <input
+          type='password'
+          placeholder='********'
+          class={Style.password_input}
+        ></input>
         <label className={Style.usertype_text}>User Type:</label>
         {/* <input type="dropdown" placeholder="Select" className={Style.usertype_input}></input> */}
         {/* <div className={Style.t-dropdown-block}>
@@ -45,16 +57,15 @@ const UserInfo = () => {
         </div>
  */}
 
+        <div class={Style.searchbtn_position}>
+          <button class={Style.search_btn}>SEARCH</button>
+        </div>
+        <div class={Style.resetbtn_position}>
+          <button class={Style.reset_btn}>RESET</button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
-    <div class={Style.searchbtn_position}>
-    <button class={Style.search_btn}>SEARCH</button>
-    </div>
-    <div class={Style.resetbtn_position}>
-        <button class={Style.reset_btn} >RESET</button>
-    </div>
-    </form>
-    </div>
-  )
-}
-
-export default UserInfo
+export default UserInfo;
