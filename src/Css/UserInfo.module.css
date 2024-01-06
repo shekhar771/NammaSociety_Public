@@ -176,7 +176,7 @@
     text-align: left;
   }
 
-  /* .usertype_input {
+  .usertype_input {
     width: 628px;
     height: 78px;
     background-color: #E6F5F1;
@@ -196,7 +196,8 @@
     border-bottom-right-radius: 8px;
     border: 1px solid #AFAFAF;
     z-index: 1;
-  } */
+  }
+
   .usertype{
     height: 78px;
     background-color: #E6F5F1;
