@@ -9,9 +9,13 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 
-// yeh main file mei dalna
+import CustomButton from '../Components/CustomButton';
+
+// userlock is working properly
 // import UserUnlock from './UserUnlock';
-// <UserUnlock />
+// import AccountingGroup from './AccountingGroup';
+//  <UserUnlock />
+//   <AccountingGroup />
 
 const UserUnlock = () => {
   return (
@@ -41,16 +45,19 @@ const UserUnlock = () => {
             }
           ></input>
         </div>
-        <div className='table'>
+        <div className={Style.table}>
           <CustomizedTables />
         </div>
         <div className={Style.buttonse}>
-          <Button className={Style.inbut} variant='outlined'>
+          {/* <Button className={Style.inbut} variant='outlined'>
             Search
           </Button>
           <Button className={Style.insa} variant='outlined'>
             unlock
-          </Button>
+          </Button> */}
+
+          <CustomButton buttonText='Search' />
+          <CustomButton buttonText='Unlock' />
         </div>
       </div>
     </div>
