@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Style from '../Css/UserUnlock.module.css';
 
 import CustomButton from '../Components/CustomButton';
@@ -15,6 +15,14 @@ import CustomSelect from '../Components/InputSelect.js';
 
 const UserInfo = () => {
   const options = ['Admin', 'Society User'];
+  const options2 = ['Level 1', 'Level 2', 'Level 3'];
+
+  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption2, setSelectedOption2] = useState('');
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
   return (
     <MainBody>
       <BreadCrumb link1='Administrator' link2='User Unlock' />
@@ -26,16 +34,20 @@ const UserInfo = () => {
               <CustomInput label='User ID:' placeholder='Saroja_9827' />
               <CustomInput label='User Name:' placeholder='Saroja' />
               <CustomInputPassword label='Password:' placeholder='******' />
-              <CustomInput label='User Type:' placeholder='Select' />
-              {/* <CustomInput label='User Access Level:' placeholder='Select' /> */}
-              {/* <CustomInputSelect
-                label='User Access Level:'
-                optionsCount={2}
+              <CustomSelect
                 options={options}
-              /> */}
-
-              <CustomSelect options={options} label='hdfxfjxdjf' />
+                onChange={handleChange}
+                value={selectedOption}
+                label='User Type:'
+              />
+              <CustomSelect
+                options={options2}
+                onChange={handleChange}
+                value={selectedOption2}
+                label='User Access Level:'
+              />
             </div>
+
             <div className={Style.buttonse}>
               <CustomButton buttonText='Add User' />
             </div>
