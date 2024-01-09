@@ -7,9 +7,10 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
-import Style from '../Css/UserUnlock.module.css';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
+import Style from '../Css/Component.module.css';
+
 const initialRows = [
   { id: 1, Name: 'John Doe', Locked: false },
   { id: 2, Name: 'Jane Doe', Locked: true },

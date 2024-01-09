@@ -29,12 +29,9 @@ import Dashboard from './Dashboard';
 // import { useState,useRef } from "react";
 
 // userlock is working properly
-// import UserUnlock from './UserUnlock';
-// import UserInfo from './UserInfo';
-// import AccountingGroup from './AccountingGroup';
-//  <UserUnlock />
-//   <AccountingGroup />
-//  <UserInfo />
+import UserUnlock from './UserUnlock';
+import UserInfo from './UserInfo';
+import AccountingGroup from './AccountingGroup';
 
 const drawerWidth = 320;
 var DrawerClose = 0;
@@ -212,6 +209,9 @@ const HomeScreen = () => {
       <div style={{ width: pgWidth, overflow: 'hidden' }} component='main'>
         <div className={Style.DisplayBox}>
           <Dashboard />
+          {/* <UserUnlock /> */}
+          {/* <AccountingGroup /> */}
+          <UserInfo />
         </div>
       </div>
     </div>

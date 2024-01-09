@@ -1,102 +1,48 @@
-import React from 'react';
-import Style from '../Css/UserInfo.module.css';
-import Select, { selectClasses } from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import * as React from 'react';
+import Style from '../Css/UserUnlock.module.css';
+
+import CustomButton from '../Components/CustomButton';
+import { DemoPaper, HighLight, MainBody } from '../Components/Wrapper.js';
+import Pager from '../Components/Wrapper.js';
+import Stack from '@mui/material/Stack';
+import BreadCrumb from '../Components/BreadCrumbs.js';
+import CustomInput, {
+  CustomInputPassword,
+  CustomInputSelect,
+  CustomInputSelecta,
+} from '../Components/Input.js';
+import CustomSelect from '../Components/InputSelect.js';
 
 const UserInfo = () => {
+  const options = ['Admin', 'Society User'];
   return (
-    <div className={Style.body}>
-      <div className={Style.admin_user_head}>Administrator >> User</div>
-      <section className='user_box'></section>
-      <div className={Style.data}></div>
+    <MainBody>
+      <BreadCrumb link1='Administrator' link2='User Unlock' />
+      <Pager>
+        <Stack direction='row' spacing={2}>
+          <DemoPaper elevation={3} variant='elevation'>
+            <HighLight KeyWord='USER INFO' />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <CustomInput label='User ID:' placeholder='Saroja_9827' />
+              <CustomInput label='User Name:' placeholder='Saroja' />
+              <CustomInputPassword label='Password:' placeholder='******' />
+              <CustomInput label='User Type:' placeholder='Select' />
+              {/* <CustomInput label='User Access Level:' placeholder='Select' /> */}
+              {/* <CustomInputSelect
+                label='User Access Level:'
+                optionsCount={2}
+                options={options}
+              /> */}
 
-      <div className={Style.users_heading}>USERS</div>
-
-      <label className={Style.userid_text}>User ID:</label>
-      <input
-        type='text'
-        placeholder='Saroja_9827'
-        className={Style.userid_input}
-      ></input>
-      <label className={Style.username_text}>User Name:</label>
-      <input
-        type='text'
-        placeholder='Saroja'
-        className={Style.username_input}
-      ></input>
-      <label className={Style.password_text}>Password:</label>
-      <input
-        type='password'
-        placeholder='********'
-        class={Style.password_input}
-      ></input>
-      <label className={Style.usertype_text}>User Type:</label>
-      <label className={Style.accesslevel_text}>User Access Level:</label>
-      <div className='usertype_input'>
-        <Select
-          placeholder='Select'
-          indicator={<KeyboardArrowDown />}
-          sx={{
-            width: 628,
-            height: 78,
-            top: 660,
-            left: 82,
-            backgroundColor: '#E6F5F1',
-            border: '1px solid #AFAFAF',
-            boxShadow: '5px 5px 8px 2px rgba(201, 199, 199, 0.8)',
-            fontFamily: 'Inter, sans-serif',
-            fontWeight: 'normal',
-            fontSize: '24px',
-            color: '#AFAFAF',
-            [`& .${selectClasses.indicator}`]: {
-              transition: '0.2s',
-              [`&.${selectClasses.expanded}`]: {
-                transform: 'rotate(-180deg)',
-              },
-            },
-          }}
-        >
-          <Option value='Admin'>Admin</Option>
-          <Option value='Society User'>Society User</Option>
-        </Select>
-      </div>
-
-      <Select
-        placeholder='Select'
-        indicator={<KeyboardArrowDown />}
-        sx={{
-          width: 628,
-          height: 78,
-          top: 700,
-          left: 82,
-          backgroundColor: '#E6F5F1',
-          border: '1px solid #AFAFAF',
-          boxShadow: '5px 5px 8px 2px rgba(201, 199, 199, 0.8)',
-          fontFamily: 'Inter, sans-serif',
-          fontWeight: 'normal',
-          fontSize: '24px',
-          color: '#AFAFAF',
-          [`& .${selectClasses.indicator}`]: {
-            transition: '0.2s',
-            [`&.${selectClasses.expanded}`]: {
-              transform: 'rotate(-180deg)',
-            },
-          },
-        }}
-      >
-        <Option value='level_1'>Level 1</Option>
-        <Option value='level_2'>Level 2</Option>
-        <Option value='level_3'>Level 3</Option>
-      </Select>
-
-      <div class={Style.searchbtn_position}>
-        <button class={Style.search_btn}>SEARCH</button>
-      </div>
-      <div class={Style.resetbtn_position}>
-        <button class={Style.reset_btn}>RESET</button>
-      </div>
-    </div>
+              <CustomSelect options={options} label='hdfxfjxdjf' />
+            </div>
+            <div className={Style.buttonse}>
+              <CustomButton buttonText='Add User' />
+            </div>
+          </DemoPaper>
+        </Stack>
+      </Pager>
+    </MainBody>
   );
 };
 

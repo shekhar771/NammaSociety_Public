@@ -10,57 +10,35 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 
 import CustomButton from '../Components/CustomButton';
-
-// userlock is working properly
-// import UserUnlock from './UserUnlock';
-// import AccountingGroup from './AccountingGroup';
-//  <UserUnlock />
-//   <AccountingGroup />
+import SearchBar from '../Components/SearchBar.js';
+import { DemoPaper, HighLight, MainBody } from '../Components/Wrapper.js';
+import Pager from '../Components/Wrapper.js';
+import { styled } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
+import BreadCrumb from '../Components/BreadCrumbs.js';
 
 const UserUnlock = () => {
   return (
-    <div className={Style.body}>
-      <div className={Style.breadCrumb}>
-        <Breadcrumbs separator='>>' maxItems={2} aria-label='breadcrumb'>
-          <Link underline='hover' color='inherit' href='#'>
-            Administrator
-          </Link>
+    <MainBody>
+      <BreadCrumb link1='Administrator' link2='User Unlock' />
+      <Pager>
+        <Stack direction='row' spacing={2}>
+          <DemoPaper elevation={3} variant='elevation'>
+            <HighLight KeyWord='USER UNLOCK' />
 
-          <Link underline='hover' color='inherit' href='#'>
-            User Unlock
-          </Link>
-        </Breadcrumbs>
-      </div>
-      <div className={Style.mainWrapper}>
-        <div className={Style.highLight}>USER UNLOCK</div>
-        <div>
-          <input
-            type='text'
-            placeholder='Search User ID/ User Name'
-            className={Style.search}
-            startAdornment={
-              <InputAdornment position='start'>
-                <SearchOutlinedIcon />
-              </InputAdornment>
-            }
-          ></input>
-        </div>
-        <div className={Style.table}>
-          <CustomizedTables />
-        </div>
-        <div className={Style.buttonse}>
-          {/* <Button className={Style.inbut} variant='outlined'>
-            Search
-          </Button>
-          <Button className={Style.insa} variant='outlined'>
-            unlock
-          </Button> */}
+            <SearchBar placeholder='    Search User ID/ User Name' />
 
-          <CustomButton buttonText='Search' />
-          <CustomButton buttonText='Unlock' />
-        </div>
-      </div>
-    </div>
+            <CustomizedTables />
+
+            <div className={Style.buttonse}>
+              <CustomButton buttonText='Search' />
+              <CustomButton buttonText='Unlock' />
+            </div>
+          </DemoPaper>
+        </Stack>
+      </Pager>
+    </MainBody>
   );
 };
 

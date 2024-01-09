@@ -11,6 +11,7 @@
   flex-direction: column; /* Display child divs in a column */
   align-items: flex-start;
   font-family: 'Inter', sans-serif;
+  minheight: '100vh';
 }
 .breadCrumb {
   color: rgba(160.21173030138016, 160.21173030138016, 160.21173030138016, 1);
@@ -22,19 +23,6 @@
   padding: 2vh 0vh;
 }
 
-.table {
-  border: 1px solid #ddd;
-}
-.tableCell {
-  color: #e6f5f1;
-  background-color: #e6f5f1;
-  font-family: 'Inter', sans-serif;
-
-  font-weight: 400;
-}
-.page {
-  text-align: left;
-}
 .mainWrapper {
   width: 70%;
   border: 5vh;
@@ -51,18 +39,18 @@
   text-align: left;
   font-size: 25px;
   letter-spacing: 0;
-  margin-bottom: 3vh;
-  /* padding-bottom: 15px; */
+  font-weight: 600;
+  margin-bottom: 2vw;
 }
 .search {
   width: 100%; /* Make the input take the full width */
   height: 50%;
-  margin: 3vh 0vh;
+  margin-bottom: 3vh;
   padding: 15px; /* Adjust padding as needed */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   border: 1px solid #ccc;
   text-align: center;
-  margin-bottom: 2vh;
+  margin-bottom: 2.5vh;
   /* padding: 0 15px 15px; */
 }
 
@@ -84,7 +72,6 @@
   font-weight: bolder;
   color: #39386a;
   background: #bfe4ff;
-
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
