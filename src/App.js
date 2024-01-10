@@ -33,7 +33,7 @@ function App() {
             <Route path='/' element={<Splash />} />
             <Route path='/LogIn' element={<LogIn />} />
             <Route path='/ForgotPassword' element={<ForgotPassword />} />
-            <Route path='/Home' element={<HomeScreen />} />
+            <Route path='/Home/*' element={<HomeScreen />} />
           </Routes>
         </div>
       </UserAuthContextProvider>

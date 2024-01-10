@@ -11,7 +11,12 @@ import BreadCrumb from '../Components/BreadCrumbs.js';
 const AccountingGroup = () => {
   return (
     <MainBody>
-      <BreadCrumb link1='Administrator' link2='Accounting Groups' />
+      <BreadCrumb
+        link1='Administrator'
+        link2='Accounting Groups'
+        path1='/Home/'
+        path2='/Home/AccountingGroup'
+      />
       <Pager>
         <Stack direction='row' spacing={2}>
           <DemoPaper elevation={3} variant='elevation'>

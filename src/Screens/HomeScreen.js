@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -211,7 +213,12 @@ const HomeScreen = () => {
           <Dashboard />
           {/* <UserUnlock /> */}
           {/* <AccountingGroup /> */}
-          <UserInfo />
+          {/* <UserInfo /> */}
+          <Routes>
+            <Route path='/' element={<UserInfo />} />
+            <Route path='/AccountingGroup' element={<AccountingGroup />} />
+            <Route path='/UserUnlock' element={<UserUnlock />} />
+          </Routes>
         </div>
       </div>
     </div>
