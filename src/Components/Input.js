@@ -12,29 +12,7 @@ import { KeyboardArrowDown } from '@mui/icons-material';
 import { MenuItem } from '@mui/material';
 
 import { makeStyles } from '@mui/system';
-// const CustomInput = () => {
-//   return (
-//     <Input
-//       placeholder='Search'
-//       style={{
-//         // Add your custom styles here
-//         border: '1px solid #ccc',
-//         borderRadius: '5px',
-//         padding: '8px',
-//         width: '20vw',
-//       }}
-//     />
-//   );
-// };
-export const CustomLabel = () => {
-  //   <InputLabel htmlFor='custom-input'>Search</InputLabel>;
-};
-export const CustomLAbIn = () => {
-  //   <div>
-  //     <CustomInput />
-  //     <CustomLabel />
-  //   </div>;
-};
+
 const CustomInput = ({ label, placeholder }) => {
   return (
     <div className={Style.inputMain}>
@@ -61,6 +39,7 @@ export const CustomInputPassword = ({ label, placeholder }) => {
         type={'password'}
         name='password'
         id='password'
+        placeholder='*******'
       />
     </div>
   );
