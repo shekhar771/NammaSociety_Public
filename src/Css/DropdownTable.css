@@ -1,0 +1,43 @@
+.arrow{
+  left: 950px;
+}
+
+.dropdown-table {
+    /* Your styles here */
+  }
+  
+  .table-container {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border: 1px solid black;
+  }
+  
+  .table {
+    /* Your styles here */
+  }
+  
+  .table-row {
+  }
+  
+  .table-cell {
+    background-color: #E6F5F1;
+    font-size: 24px;
+    text-align: left;
+    height: 8vh;
+  }
+  .societygrp{
+    background-color: #E6F5F1;
+    font-size: 24px;
+    text-align:  left;
+  }
+
+  .level1{
+    font-size: 20px; 
+    text-align: center;
+ }
+
+ .content{
+  width: 80vh;
+ }
+  
+  
