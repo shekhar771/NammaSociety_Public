@@ -29,12 +29,13 @@ import Dashboard from './Dashboard';
 // import { useNavigate, createSearchParams } from "react-router-dom";
 // import { getDatabase, ref, get, child } from "firebase/database";
 // import { useState,useRef } from "react";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 // userlock is working properly
 import UserUnlock from './UserUnlock';
 import UserInfo from './UserInfo';
 import AccountingGroup from './AccountingGroup';
-import AdminUserLogin from './AdminUserLogin';
+// import AdminUserLogin from './AdminUserLogin';
 
 const drawerWidth = 320;
 var DrawerClose = 0;
@@ -113,7 +114,39 @@ const HomeScreen = () => {
       setPgWidth(windowSize.current - drawerWidth);
     }
   };
+  //send
+  const auth = getAuth();
 
+  const sendIdTokenToBackend = (idToken) => {
+    fetch('http://localhost:3005/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ idToken }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log({ data });
+        // Handle the response from the backend if needed
+      })
+      .catch((error) => {
+        console.error('Error sending ID token to backend:', error);
+      });
+  };
+  React.useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        user.getIdToken().then((idToken) => {
+          // Send the idToken to your backend
+          sendIdTokenToBackend(idToken);
+        });
+      } else {
+        // User is signed out
+        // Handle accordingly
+      }
+    });
+  });
   return (
     <div style={{ display: 'flex', overflow: 'hidden' }}>
       <CssBaseline />
@@ -216,7 +249,6 @@ const HomeScreen = () => {
           {/* <AccountingGroup /> */}
           {/* <UserInfo /> */}
           {/* <AdminUserLogin /> */}
-          
 
           <Routes>
             <Route path='/' element={<UserInfo />} />

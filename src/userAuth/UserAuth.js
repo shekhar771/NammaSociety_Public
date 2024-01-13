@@ -1,22 +1,22 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from 'react';
 import {
-//   createUserWithEmailAndPassword, -->to be added later 
+  //   createUserWithEmailAndPassword, -->to be added later
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
-//   GoogleAuthProvider,
-//   signInWithPopup,
-} from "firebase/auth";
-import {auth} from "../Firebase/firebaseConfig"
+  //   GoogleAuthProvider,
+  //   signInWithPopup,
+} from 'firebase/auth';
+import { auth } from '../Firebase/firebaseConfig';
 // import { useNavigate } from "react-router-dom";
+import React from 'react';
 
 const userAuthContext = createContext();
 
-
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
-//   const navigate =  useNavigate();
+  //   const navigate =  useNavigate();
 
   function logIn(email, password) {
     // navigate("/");
@@ -26,10 +26,10 @@ export function UserAuthContextProvider({ children }) {
   function logOut() {
     // navigate("/SignIn");
     return signOut(auth);
-    
   }
+  // console.log(auth.currentUser);
 
-  function forgotPassword  (email) {
+  function forgotPassword(email) {
     return sendPasswordResetEmail(auth, email);
   }
 
@@ -43,7 +43,7 @@ export function UserAuthContextProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
-      console.log("Auth", currentuser);
+      console.log('Auth', currentuser);
       setUser(currentuser);
     });
 
@@ -51,9 +51,8 @@ export function UserAuthContextProvider({ children }) {
       unsubscribe();
     };
   }, []);
-
   return (
-    <userAuthContext.Provider value={{ user, logIn, logOut,forgotPassword }}>
+    <userAuthContext.Provider value={{ user, logIn, logOut, forgotPassword }}>
       {children}
     </userAuthContext.Provider>
   );

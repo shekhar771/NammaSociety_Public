@@ -2,7 +2,7 @@
 .body {
   background-color: white;
   width: 100%;
-
+  flex-grow: 1;
   display: flex;
   height: 850vh;
   padding: 2vh 0 0 5vh;
