@@ -39,4 +39,5 @@ export const DemoPaper = styled(Paper)(({ theme }) => ({
   borderRadius: '3vh',
   boxSizing: 'border-box',
   padding: '3vh 5.5vh',
+  backgroundColor: 'blue',
 }));
