@@ -5,18 +5,17 @@ import {
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
-  //   GoogleAuthProvider,
-  //   signInWithPopup,
-} from 'firebase/auth';
-import { auth } from '../Firebase/firebaseConfig';
-// import { useNavigate } from "react-router-dom";
-import React from 'react';
+//   GoogleAuthProvider,
+//   signInWithPopup,
+} from "firebase/auth";
+import {auth} from "../Firebase/firebaseConfig"
+import { useNavigate } from "react-router-dom";
 
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
-  //   const navigate =  useNavigate();
+  const navigate =  useNavigate();
 
   function logIn(email, password) {
     // navigate("/");
@@ -24,7 +23,7 @@ export function UserAuthContextProvider({ children }) {
   }
 
   function logOut() {
-    // navigate("/SignIn");
+    navigate("/LogIn");
     return signOut(auth);
   }
   // console.log(auth.currentUser);

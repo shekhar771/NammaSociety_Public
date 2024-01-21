@@ -15,7 +15,7 @@ import { makeStyles } from '@mui/system';
 const CustomInput = ({ label, placeholder, onChange }) => {
   return (
     <div className='inputMain'>
-      <label className='userid_text'>{label}</label>
+      {/* <text className='userid_text'>{label}</text> */}
       <input
         type='text'
         onChange={onChange}
@@ -33,7 +33,7 @@ export const CustomInputPassword = ({ label, placeholder, onChange }) => {
   };
   return (
     <div className='inputMain'>
-      <label className='userid_text'>{label}</label>
+      {/* <label className='userid_text'>{label}</label> */}
       <input
         className='useridInput'
         type={'password'}

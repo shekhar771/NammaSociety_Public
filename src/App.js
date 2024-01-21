@@ -12,7 +12,7 @@ function App() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#010',
+        // backgroundColor: '#010',
         width: '100vh,',
         height: '100vh',
         justifyContent: 'center',
@@ -24,7 +24,7 @@ function App() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#334',
+            backgroundColor: '#fff',
             height: '100%',
             width: '100%',
           }}
@@ -34,6 +34,9 @@ function App() {
             <Route path='/LogIn' element={<LogIn />} />
             <Route path='/ForgotPassword' element={<ForgotPassword />} />
             <Route path='/Home/*' element={<HomeScreen />} />
+            {/* <Route path='/AccountingGroup' element={<AccountingGroup />} />
+            <Route path='/UserUnlock' element={<UserUnlock />} />
+            <Route path='/' element={<UserInfo />} /> */}
           </Routes>
         </div>
       </UserAuthContextProvider>

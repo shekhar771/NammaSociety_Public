@@ -18,7 +18,6 @@ const CustomSelectButton = styled('div')({
   alignItems: 'center',
   cursor: 'pointer',
   backgroundColor: '#e6f5f1',
-
   fontFamily: 'Inter',
   fontWeight: 'Regular',
   fontSize: '24px',
@@ -35,6 +34,7 @@ const CustomSelect = ({ label, options, onChange, value }) => {
         value={value}
         onChange={onChange}
         label='select'
+        className='customSelect'
         sx={{
           border: ' 1px solid #afafaf',
           borderRadius: '8px',
@@ -45,7 +45,6 @@ const CustomSelect = ({ label, options, onChange, value }) => {
           alignItems: 'center',
           cursor: 'pointer',
           backgroundColor: '#e6f5f1',
-
           fontFamily: 'Inter',
           fontWeight: 'Regular',
           fontSize: '24px',

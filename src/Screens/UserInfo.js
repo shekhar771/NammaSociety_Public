@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import Style from '../Css/UserUnlock.module.css';
-
+import React, { useEffect, useState } from 'react';
+import Style from '../Css/UserUnlock.css';
+//----------Custom components------
 import CustomButton from '../Components/CustomButton';
-import { DemoPaper, HighLight, MainBody } from '../Components/Wrapper.js';
-import Pager from '../Components/Wrapper.js';
+import {  HighLight, InnerDisplay, CustomPaper } from '../Components/Wrapper.js';
 import BreadCrumb from '../Components/BreadCrumbs.js';
 import CustomInput, { CustomInputPassword } from '../Components/Input.js';
 import CustomSelect from '../Components/InputSelect.js';
+//----------Css------
+import '../Css/UserInfo.css';
+//----------firebase imports------
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useUserAuth } from "../userAuth/UserAuth";
 
 const UserInfo = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const options = ['Admin', 'Society User'];
   const options2 = ['Level 1', 'Level 2', 'Level 3'];
+
   const [formData, setFormData] = useState({
     userId: '',
     userName: '',
@@ -29,7 +34,6 @@ const UserInfo = () => {
       [fieldName]: value,
     }));
   };
-
   //This is for options
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -37,7 +41,6 @@ const UserInfo = () => {
   const handleChange2 = (event) => {
     setSelectedOption2(event.target.value);
   };
-
   //Send to the backend
   const handleSubmit = async () => {
     try {
@@ -63,16 +66,27 @@ const UserInfo = () => {
     //   console.error('Error during data submission:', error);
     // }
   };
+
+  // const { user } = useUserAuth();
+  // useEffect(()=>{
+  //   const db = getDatabase();
+  //   const info = ref(db, 'users/'+ user.uid);
+  //   onValue(info, (snapshot)=>{
+  //     const data = snapshot.val()
+  //     console.log(data)
+  //   })
+  // })
+  
   return (
-    <MainBody>
+    <InnerDisplay>
+
       <BreadCrumb
         link1='Administrator'
         link2='User Info'
         path1='/Home/'
         path2='/Home/'
       />
-      <Pager>
-        <DemoPaper elevation={3} variant='elevation'>
+      <CustomPaper>
           <HighLight KeyWord='USER INFO' />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <CustomInput
@@ -107,9 +121,8 @@ const UserInfo = () => {
           <div className={Style.buttonse}>
             <CustomButton buttonText='Add User' onClick={handleSubmit} />
           </div>
-        </DemoPaper>
-      </Pager>
-    </MainBody>
+      </CustomPaper>
+    </InnerDisplay>
   );
 };
 

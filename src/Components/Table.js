@@ -28,7 +28,6 @@ const initialRows = [
   { id: 14, Name: 'Jane Doe', Locked: true },
   { id: 15, Name: 'John Doe', Locked: false },
   { id: 16, Name: 'Jane Doe', Locked: true },
-
   // Add more rows as needed
 ];
 
@@ -80,10 +79,11 @@ const CustomizedTables = () => {
               <TableCell>
                 {row.Locked ? (
                   <LockOpenOutlinedIcon
+                  style={{color:"0f0"}}
                     onClick={() => handleIconClick(row.id)}
                   />
                 ) : (
-                  <LockOutlinedIcon onClick={() => handleIconClick(row.id)} />
+                  <LockOutlinedIcon style={{color:"#f00"}} onClick={() => handleIconClick(row.id)} />
                 )}
               </TableCell>
             </TableRow>

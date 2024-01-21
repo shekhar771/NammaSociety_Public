@@ -1,27 +1,28 @@
 import React from 'react'
-import { DemoPaper, HighLight, MainBody } from '../Components/Wrapper.js';
+import { DemoPaper,  MainBody } from '../Components/Wrapper.js';
 import Pager from '../Components/Wrapper.js';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import BreadCrumb from '../Components/BreadCrumbs.js';
 import SearchBar from '../Components/SearchBar.js';
 import DropdownTable from '../Components/DropdownTable.js';
-
+import '../Css/UserInfo.css';
+import {  HighLight, InnerDisplay, CustomPaper } from '../Components/Wrapper.js';
 
 const AdminUserLogin = () => {
     return (
-        <MainBody>
+        <InnerDisplay>
             <BreadCrumb link1='Administrator' link2='Admin and User Login' />
-            <Pager>
+            <CustomPaper>
                 <Stack direction='row' spacing={2}>
-                    <DemoPaper elevation={3} variant='elevation'>
+                    <CustomPaper elevation={3} variant='elevation'>
                     <HighLight KeyWord='Admin and User Login' />
                     <SearchBar placeholder='    Search User ID/ User Name' />
                     <DropdownTable/>
-                    </DemoPaper>
+                    </CustomPaper>
                 </Stack>
-            </Pager>
-        </MainBody>
+            </CustomPaper>
+        </InnerDisplay>
   );
 };
 

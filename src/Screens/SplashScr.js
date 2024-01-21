@@ -9,9 +9,10 @@ const Splash = () => {
   const navigate = useNavigate();
   const isCalledRef = React.useRef(false);
 
-  //   const navToHome = (details) => {
-  //     setTimeout(navigate("/LogIn", { state: details }), 3000);
-  //   };
+
+const navToHome = (details) => {
+  navigate("/Home", { state: details });
+};
 
   React.useEffect(() => {
     if (!isCalledRef.current) {
@@ -21,21 +22,19 @@ const Splash = () => {
           get(child(dbRef, `Users/${user.uid}`))
             .then((snapshot) => {
               if (snapshot.exists()) {
-                // console.log(snapshot.val())
-                const data = snapshot.val();
-                console.log(data);
-                // const details = JSON.stringify(snapshot.val());
-                // navToHome(details);
+                const details = JSON.stringify(snapshot.val());
+                navToHome(details);
               } else {
                 console.log('No data available');
               }
             })
             .catch((error) => {
+              console.log("err")
               console.log(error);
             });
         } else {
-          console.log('no current user');
-          navigate('/LogIn');
+          // console.log("no current user");
+          navigate("/LogIn");
         }
       });
     }
