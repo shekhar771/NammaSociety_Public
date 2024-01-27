@@ -1,0 +1,11 @@
+.SocInfoTxt{
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.TxtGrid{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}

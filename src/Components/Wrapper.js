@@ -43,18 +43,11 @@ export default Pager;
 //   padding: '3vh 5.5vh',
 // }));
 
-export const CustomPaper = ({children})=>{
-  return(
-    <div className='customPaper'>{children}
-    </div>
-  )
-}
+export const CustomPaper = ({children})=>{return(<div className='customPaper'>{children}</div>)}
 
-export const InnerDisplay = ({children}) =>{
-  return <div  className='innerDisplay'>
-    {children}
-    </div>
-}
+export const InnerDisplay = ({children}) =>{return <div  className='innerDisplay'>{children}</div>}
+
+export const SubBodyDisplay = ({children}) =>{return <div className='subBodyDp'>{children}</div>}
 
 
 export const AdminInnList = ({ListItemClick}) =>{
@@ -223,6 +216,8 @@ export const UtilInList = () =>{
   </List>
   </div>
 }
+
+
 
 // export const DemoPaper = styled(Paper)(({ theme }) => ({
 //   width: '80vw',

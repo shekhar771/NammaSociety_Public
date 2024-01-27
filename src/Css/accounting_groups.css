@@ -46,7 +46,7 @@
   }
 
   .modifyadmin-search-bar{
-    background-image: url("/assets/search.png");
+    background-image: url("../Assets/search.png");
     background-repeat: no-repeat;
     background-position: 10px;
     height: 52px;
@@ -286,7 +286,7 @@
   }
   
   .search-bar{
-    background-image: url("/assets/search.png");
+    background-image: url("../Assets/search.png");
     background-repeat: no-repeat;
     background-position: 10px;
     border-top-left-radius: 8px;
@@ -553,7 +553,7 @@
   .icon {
     width: 40px;
     height: 40px;
-    background: url("./assets/home.png"); /* Replace with the path to your icon */
+    background: url("../Assets/home.png"); /* Replace with the path to your icon */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

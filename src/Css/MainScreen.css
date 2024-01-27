@@ -1,0 +1,71 @@
+.MainScrBx{
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+.MainScrBx::-webkit-scrollbar{
+    width: 0;
+}
+
+.SocSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../Assets/home.png');
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+.FeatureSect{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #BFE4FF;
+}
+
+.Maintxt{
+    padding-top: 6%;
+    font-size:  3em;;
+    color: aliceblue;
+    font-family:'Marko One' ;
+    margin-bottom: 3%;
+}
+
+.Subtxt{
+    font-size:  1em;;
+    color: aliceblue;
+    font-family:'Marko One' ;
+    padding-bottom: 6%;
+}
+.contactBtn{
+    font-size: 20px;
+    height: 60px;
+    width: 180px;
+    background-color: #BFE4FF;
+    border-radius: 25px;
+    border: none;
+}
+
+.Row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 35% ;
+    width: 80%;
+    background-color: blue;
+}
+
+.ImgBox{
+    width: 40%;
+    height: 100%;
+    background-color: blueviolet;
+}
+.InBoxtxt{
+    background-color: rgba(256, 256, 256, 0.7);
+}

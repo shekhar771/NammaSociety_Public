@@ -190,8 +190,11 @@
   text-align: center;
   width: 95% ;
   box-shadow: 5px 5px 4px 4px rgba(0, 0, 0, 0.3); 
+  overflow-y:scroll ;
 }
-
+.customPaper::-webkit-scrollbar{
+  width: 0;
+}
 .innerDisplay{
   display: flex;
   flex-direction: column;
@@ -201,4 +204,13 @@
   width: 80%;
   /* height: fit-content; */
   /* background-color: tomato; */
+}
+
+
+.subBodyDp{
+  width: 100%;
+  padding: 20px;
+  border: 1px solid;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

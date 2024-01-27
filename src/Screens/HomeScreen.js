@@ -34,6 +34,9 @@ import UserInfo from './UserInfo';
 import AccountingGroup from './AccountingGroup';
 import AdminUserLogin from './AdminUserLogin';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import SocietyInfo from './SocietyInfo';
+import SocietyModify from './SocietyModify';
+import BillingDetails from './BillingDetails';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 // import { useNavigate, createSearchParams } from "react-router-dom";
 // import { getDatabase, ref, get, child } from "firebase/database";
@@ -88,11 +91,6 @@ const Drawer = styled(MuiDrawer, {
     '& .MuiDrawer-paper': closedMixin(theme),
   }),
 }));
-
-
-
-
-
 
 const HomeScreen = () => {
   const { user, logOut } = useUserAuth();
@@ -336,6 +334,8 @@ const [CompoVis, setCompVis] = React.useState(Array(4).fill(false))
           <Dashboard username= {UserObj.UserName} userType={UserObj.Role} adminStatus = {UserObj.UserName}/>
           {CompoVis[0] && <UserInfo/>}
           {CompoVis[1] && <UserUnlock/>}
+          {CompoVis[2] && <AccountingGroup/>}
+          {CompoVis[3] && <SocietyModify/>}
         </div>
       </div>
       <Dialog

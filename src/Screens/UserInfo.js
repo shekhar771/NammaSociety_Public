@@ -81,8 +81,8 @@ const UserInfo = () => {
     <InnerDisplay>
 
       <BreadCrumb
-        link1='Administrator'
-        link2='User Info'
+        link1='Society'
+        link2='Society'
         path1='/Home/'
         path2='/Home/'
       />
