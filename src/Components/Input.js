@@ -15,7 +15,7 @@ import { makeStyles } from '@mui/system';
 const CustomInput = ({ label, placeholder, onChange }) => {
   return (
     <div className='inputMain'>
-      {/* <text className='userid_text'>{label}</text> */}
+      <label className='userid_text'>{label}</label>
       <input
         type='text'
         onChange={onChange}
@@ -33,7 +33,7 @@ export const CustomInputPassword = ({ label, placeholder, onChange }) => {
   };
   return (
     <div className='inputMain'>
-      {/* <label className='userid_text'>{label}</label> */}
+      <label className='userid_text'>{label}</label>
       <input
         className='useridInput'
         type={'password'}
@@ -43,24 +43,6 @@ export const CustomInputPassword = ({ label, placeholder, onChange }) => {
         onChange={onChange}
       />
     </div>
-  );
-};
-
-export const CustomInputSelecta = ({ label, optionsCount, options }) => {
-  const optionElements = Array.from({ length: optionsCount }, (_, index) => (
-    <option className='userIdOpt' key={index + 1} value={options[index]}>
-      {options[index]}
-    </option>
-  ));
-  return (
-    <>
-      <div>
-        <label>{label}</label>
-        <Select placeholder='Select' indicator={<KeyboardArrowDown />}>
-          {optionElements}
-        </Select>
-      </div>
-    </>
   );
 };
 

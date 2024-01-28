@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import Style from '../Css/UserUnlock.css';
 //----------Custom components------
 import CustomButton from '../Components/CustomButton';
-import {  HighLight, InnerDisplay, CustomPaper } from '../Components/Wrapper.js';
+import { HighLight, InnerDisplay, CustomPaper } from '../Components/Wrapper.js';
 import BreadCrumb from '../Components/BreadCrumbs.js';
 import CustomInput, { CustomInputPassword } from '../Components/Input.js';
 import CustomSelect from '../Components/InputSelect.js';
 //----------Css------
-import '../Css/UserInfo.css';
+import '../Css/Component.css';
+
 //----------firebase imports------
-import { getDatabase, ref, onValue } from "firebase/database";
-import { useUserAuth } from "../userAuth/UserAuth";
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { useUserAuth } from '../userAuth/UserAuth';
 
 const UserInfo = () => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -76,10 +76,9 @@ const UserInfo = () => {
   //     console.log(data)
   //   })
   // })
-  
+
   return (
     <InnerDisplay>
-
       <BreadCrumb
         link1='Society'
         link2='Society'
@@ -87,40 +86,41 @@ const UserInfo = () => {
         path2='/Home/'
       />
       <CustomPaper>
-          <HighLight KeyWord='USER INFO' />
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <CustomInput
-              label='User ID:'
-              placeholder='Saroja_9827'
-              onChange={(event) => handleInputChange('userId', event)}
-            />
-            <CustomInput
-              label='User Name:'
-              placeholder='Saroja'
-              onChange={(value) => handleInputChange('userName', value)}
-            />
-            <CustomInputPassword
-              label='Password:'
-              placeholder='******'
-              onChange={(value) => handleInputChange('password', value)}
-            />
-            <CustomSelect
-              options={options}
-              onChange={handleChange}
-              value={selectedOption}
-              label='User Type:'
-            />
-            <CustomSelect
-              options={options2}
-              onChange={handleChange2}
-              value={selectedOption2}
-              label='User Access Level:'
-            />
-          </div>
+        <HighLight KeyWord='USER INFO' />
+        {/* <div style={{ display: 'flex', flexDirection: 'column' }}> */}
+        <CustomInput
+          label='User ID:'
+          placeholder='Saroja_9827'
+          onChange={(event) => handleInputChange('userId', event)}
+        />
+        <CustomInput
+          label='User Name:'
+          placeholder='Saroja'
+          onChange={(value) => handleInputChange('userName', value)}
+        />
+        <CustomInputPassword
+          label='Password:'
+          placeholder='******'
+          onChange={(value) => handleInputChange('password', value)}
+        />
+        <CustomSelect
+          placeholder='Placeholder'
+          options={options}
+          onChange={handleChange}
+          value={selectedOption}
+          label='User Type:'
+        />
+        <CustomSelect
+          options={options2}
+          onChange={handleChange2}
+          value={selectedOption2}
+          label='User Access Level:'
+        />
+        {/* </div> */}
 
-          <div className={Style.buttonse}>
-            <CustomButton buttonText='Add User' onClick={handleSubmit} />
-          </div>
+        <div className='buttonses'>
+          <CustomButton buttonText='Add User' onClick={handleSubmit} />
+        </div>
       </CustomPaper>
     </InnerDisplay>
   );

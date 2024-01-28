@@ -45,7 +45,9 @@
 .inbut {
   white-space: nowrap;
   align-items: center;
-  width: 18.5vh;
+  width: auto; /* Allow the width to adjust based on content */
+  min-width: fit-content;
+  /* width: 18.5vh; */
   padding: 2vh 3vh;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -55,12 +57,13 @@
   font-weight: bolder;
   color: #39386a;
   background: #bfe4ff;
+  margin: 0px 1vw;
 
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
   box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
-  /* max-width: 110px; */
+  max-width: 25vw; /* Set a maximum width for the button */
 }
 .inbut:hover {
   background-color: #39386a;
@@ -71,21 +74,25 @@
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .inbut {
     white-space: nowrap;
+    max-width: 90px; /* Adjust the maximum width for smaller screens */
 
-    width: 14vh;
+    width: 25vh;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-    /* width: ; */
   }
   .buttonse {
     justify-content: space-between;
-
+    margin-top: 2vh;
     /* margin: 8vh 2vh 12vh; */
   }
 }
-
+.buttonses {
+  justify-content: space-between;
+  margin-top: 2vh;
+  /* margin: 8vh 2vh 12vh; */
+}
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
   .body {
@@ -100,40 +107,71 @@
     border-bottom-right-radius: 50px;
     font-size: 15px;
     margin: 1vh;
+    max-width: 70px; /* Adjust the maximum width for even smaller screens */
   }
 }
 
 .inputMain {
   display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 2vh 0vh;
   width: 90%;
   white-space: nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow items to wrap onto the next line */
 }
 
 .userid_text {
   font-size: 1.625rem;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  margin-right: 1rem;
-  /* text-align: start; */
-  width: 20vw;
+  /* margin-right: 1rem;
+  text-align: start;
+  width: 20vw; */
+
+  /* margin-right: 1rem; */
+  text-align: start;
+  width: 20%;
+  flex-shrink: 1;
+  word-wrap: break-word;
+}
+@media screen and (max-width: 768px) {
+  .userid_text {
+    font-size: 1.25rem;
+  }
 }
 
+@media screen and (max-width: 480px) {
+  .userid_text {
+    font-size: 1rem;
+  }
+}
 .useridInput {
-  flex-shrink: 2;
+  flex-shrink: 1; /* Adjust the flex-shrink value based on your requirements */
   background-color: #e6f5f1;
-  font-family: Inter;
-  font-weight: Regular;
-  font-size: 24px;
-  width: 40vw;
+  font-family: 'Inter', sans-serif;
+  font-weight: regular;
+  font-size: 1.5rem; /* Set a base font size for input */
+  width: 65%;
   margin-left: 1vh;
-  /* box-shadow: 5px 5px 8px 2px rgba(201, 199, 199, 0.8); */
   border-radius: 8px;
   border: 1px solid #afafaf;
   padding: 8px;
+}
+@media screen and (max-width: 768px) {
+  /* Adjustments for smaller screens */
+  .inputMain {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: flex-start;
+  }
+
+  .userid_text {
+    width: 100%; /* Full width for labels on smaller screens */
+  }
+
+  .useridInput {
+    width: 100%; /* Full width for inputs on smaller screens */
+  }
 }
 .userIdOptions {
   /* flex-shrink: 2; */
@@ -179,35 +217,45 @@
   /* border-radius: 8px; 
   border: 5px solid #afafaf; */
 }
+.select {
+  border: none;
+}
 
-.customPaper{
+.customPaper {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   border-radius: 10px;
+  /* so uncomment the min hieght and comment out the overflow and hieght property to check */
+  /* min-height: 75vh; */
+
   height: 90vh;
   text-align: center;
-  width: 95% ;
-  box-shadow: 5px 5px 4px 4px rgba(0, 0, 0, 0.3); 
-  overflow-y:scroll ;
+  width: 95%;
+  /* box-shadow: 5px 5px 4px 4px rgba(0, 0, 0, 0.3); */
+
+  box-shadow: -10px 8px 15px rgba(0, 0, 0, 0.1),
+    /*left and bottom*/ 10px 8px 15px rgba(0, 0, 0, 0.1); /*right and bottom*/
+
+  overflow-y: scroll;
 }
-.customPaper::-webkit-scrollbar{
+.customPaper::-webkit-scrollbar {
   width: 0;
 }
-.innerDisplay{
+.innerDisplay {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
   /* display: flex; */
   height: fit-content;
+  margin-top: 1vh;
   width: 80%;
   /* height: fit-content; */
   /* background-color: tomato; */
 }
 
-
-.subBodyDp{
+.subBodyDp {
   width: 100%;
   padding: 20px;
   border: 1px solid;
