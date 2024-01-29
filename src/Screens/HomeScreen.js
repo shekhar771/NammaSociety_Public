@@ -19,14 +19,14 @@ import { MdSpaceDashboard } from 'react-icons/md';
 import { MdAdminPanelSettings } from 'react-icons/md';
 import { FaScrewdriverWrench } from 'react-icons/fa6';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
-import { IoIosLogOut } from "react-icons/io";
+import { IoIosLogOut } from 'react-icons/io';
 //-----Css imports---------//
 import '../Css/HomeScreen.css';
 //-----Component import---------//
 import ApBarStyle from '../Css/Toolbar.module.css';
 import Dashboard from './Dashboard';
 //-----Navigation import---------//
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from 'react-router-dom';
 // ---- pages import ------------userlock is working properly
 import SocGL from './SocGL';
 import UserUnlock from './UserUnlock';
@@ -42,7 +42,7 @@ import BillingDetails from './BillingDetails';
 // import { getDatabase, ref, get, child } from "firebase/database";
 // import { useState,useRef } from "react";
 //-----LogOut dialogue Box---------//
-import { useUserAuth } from "../userAuth/UserAuth";
+import { useUserAuth } from '../userAuth/UserAuth';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -52,8 +52,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import { useEffect } from 'react';
 
-
-import { AdminInnList , SocietyInList, OperaInList, RepoInList, UtilInList } from '../Components/Wrapper';
+import {
+  AdminInnList,
+  SocietyInList,
+  OperaInList,
+  RepoInList,
+  UtilInList,
+} from '../Components/Wrapper';
 
 const drawerWidth = 320;
 const openedMixin = (theme) => ({
@@ -94,30 +99,32 @@ const Drawer = styled(MuiDrawer, {
 
 const HomeScreen = () => {
   const { user, logOut } = useUserAuth();
-  const [outAlert, setAlert] =  React.useState(false);
+  const [outAlert, setAlert] = React.useState(false);
   //=========Manage navigation and user info==========//
-  const location = useLocation()
+  const location = useLocation();
   // const data = location.state;
-  const dataJson = JSON.parse(location.state)
+  const dataJson = JSON.parse(location.state);
   const navigate = useNavigate();
-//==============get user data ==================//
+  //==============get user data ==================//
 
-const [UserObj , setUserObj] = React.useState([])
-const db = getDatabase();
-const ann = ref(db, "Users/" + user.uid);
-useEffect(() => {
+  const [UserObj, setUserObj] = React.useState([]);
+  const db = getDatabase();
+  const ann = ref(db, 'Users/' + user.uid);
+  useEffect(() => {
     onValue(ann, (snapshot) => {
       const data = snapshot.val();
       setUserObj(data);
     });
   });
 
-//=========Manage drawer and viewBox width==========//
+  //=========Manage drawer and viewBox width==========//
   const theme = useTheme();
   // const [dashData, setDash] = React.useState(JSON.parse(location.state))
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
-  const [pgWidth, setPgWidth] = React.useState(parseInt(window.innerWidth - parseInt(theme.spacing(7)) - 1));
+  const [pgWidth, setPgWidth] = React.useState(
+    parseInt(window.innerWidth - parseInt(theme.spacing(7)) - 1)
+  );
   const [hide, setHide] = React.useState('none');
   const windowSize = React.useRef([window.innerWidth]);
   const [openStates, setOpenStates] = React.useState(Array(6).fill(false)); // Initial state, assuming 6 items
@@ -127,7 +134,7 @@ useEffect(() => {
       HandlePgWidth(open);
       setOpen(false);
       setHide('none');
-      setOpenStates(Array(6).fill(false))
+      setOpenStates(Array(6).fill(false));
     }
     if (open == false) {
       HandlePgWidth(open);
@@ -146,72 +153,44 @@ useEffect(() => {
   //send
   const auth = getAuth();
 
-  const sendIdTokenToBackend = (idToken) => {
-    fetch('http://localhost:3005/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ idToken }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log({ data });
-        // Handle the response from the backend if needed
-      })
-      .catch((error) => {
-        console.error('Error sending ID token to backend:', error);
+  //=========Drawer Inner List====================//
+  const handleListItem = (index) => {
+    if (open == true) {
+      setOpenStates((prevOpenStates) => {
+        const newOpenStates = [...prevOpenStates];
+        newOpenStates[index] = !newOpenStates[index]; // Toggle the state for the clicked item
+        return newOpenStates;
       });
+    }
   };
 
-  // React.useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       user.getIdToken().then((idToken) => {
-  //         // Send the idToken to your backend
-  //         sendIdTokenToBackend(idToken);
-  //       });
-  //     } else {
-  //       // User is signed out
-  //       // Handle accordingly
-  //     }
-  //   });
-  // });
-
-//=========Drawer Inner List====================//
- const handleListItem = (index) =>{
-  if (open == true)
-  {setOpenStates((prevOpenStates) => {
-    const newOpenStates = [...prevOpenStates];
-    newOpenStates[index] = !newOpenStates[index]; // Toggle the state for the clicked item
-    return newOpenStates;});}}
-
-const [CompoVis, setCompVis] = React.useState(Array(4).fill(false))
-  const handleItemClick = (index) =>{
-    setCompVis(Array(4).fill(false))
-    setCompVis((preItemState) =>{
+  const [CompoVis, setCompVis] = React.useState(Array(4).fill(false));
+  const handleItemClick = (index) => {
+    setCompVis(Array(4).fill(false));
+    setCompVis((preItemState) => {
       const newItemStates = [...preItemState];
       newItemStates[index] = !newItemStates[index];
-      return newItemStates;}
-      )
-    }
+      return newItemStates;
+    });
+  };
 
-//==========logout============//
+  //==========logout============//
   const handleClickOpen = () => {
     setAlert(true);
-    console.log(dataJson)
+    console.log(dataJson);
   };
   const handleClose = () => {
     setAlert(false);
   };
   const handleLogOut = async () => {
-  try {
-    setAlert(false);
-    await logOut();
-  } catch (err) {
-    console.log(err.message);
-  }};
-//=========Front-end==========//
+    try {
+      setAlert(false);
+      await logOut();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  //=========Front-end==========//
   return (
     <div style={{ display: 'flex', overflow: 'hidden' }}>
       <CssBaseline />
@@ -259,107 +238,115 @@ const [CompoVis, setCompVis] = React.useState(Array(4).fill(false))
 
         <List>
           {[
-            {text:'Dashboard',InList : [<div></div>] },
-            {text:'Administrator',InList : [<AdminInnList ListItemClick ={handleItemClick}/>] },
-            {text:'Society',InList : [<SocietyInList/>] },
-            {text:'Operations',InList : [<OperaInList/>] },
-            {text:'Reports',InList : [<RepoInList/>] },
-            {text:'Utility',InList : [<UtilInList/>] },
-          ].map(({text, InList }, index) => (
+            { text: 'Dashboard', InList: [<div></div>] },
+            {
+              text: 'Administrator',
+              InList: [<AdminInnList ListItemClick={handleItemClick} />],
+            },
+            { text: 'Society', InList: [<SocietyInList />] },
+            { text: 'Operations', InList: [<OperaInList />] },
+            { text: 'Reports', InList: [<RepoInList />] },
+            { text: 'Utility', InList: [<UtilInList />] },
+          ].map(({ text, InList }, index) => (
             <div>
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-                onClick={()=>handleListItem(index)}
-              >
-                <ListItemIcon
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
                   }}
+                  onClick={() => handleListItem(index)}
                 >
-                  {index === 0 ? (
-                    <MdSpaceDashboard
-                    size={"20px"}
-                    style={{color:"A0A0A0"}}
-                    />
-                  ) : index === 1 ? (
-                    <MdManageAccounts 
-                    size={"20px"}
-                    style={{color:"A0A0A0"}}/>
-                  ) : index === 2 ? (
-                    <HiBuildingOffice2 
-                    size={"20px"}
-                    style={{color:"A0A0A0"}}/>
-                  ) : index === 3 ? (
-                    <FaScrewdriverWrench 
-                    size={"20px"}
-                    style={{color:"A0A0A0"}}/>
-                  ) : index === 4 ? (
-                    <ImBooks 
-                    size={"20px"}
-                    style={{color:"A0A0A0"}}/>
-                  ) : index === 5 ? (
-                    <FaScrewdriverWrench 
-                    size={"20px"}
-                    style={{color:"A0A0A0"}}/>
-                  ) : (
-                    <MdAdminPanelSettings 
-                    size={"20px"}
-                    style={{color:"A0A0A0"}}/>
-                  )}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-            <Collapse in={openStates[index]} timeout='auto' unmountOnExit>
-              {InList}
-            </Collapse>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {index === 0 ? (
+                      <MdSpaceDashboard
+                        size={'20px'}
+                        style={{ color: 'A0A0A0' }}
+                      />
+                    ) : index === 1 ? (
+                      <MdManageAccounts
+                        size={'20px'}
+                        style={{ color: 'A0A0A0' }}
+                      />
+                    ) : index === 2 ? (
+                      <HiBuildingOffice2
+                        size={'20px'}
+                        style={{ color: 'A0A0A0' }}
+                      />
+                    ) : index === 3 ? (
+                      <FaScrewdriverWrench
+                        size={'20px'}
+                        style={{ color: 'A0A0A0' }}
+                      />
+                    ) : index === 4 ? (
+                      <ImBooks size={'20px'} style={{ color: 'A0A0A0' }} />
+                    ) : index === 5 ? (
+                      <FaScrewdriverWrench
+                        size={'20px'}
+                        style={{ color: 'A0A0A0' }}
+                      />
+                    ) : (
+                      <MdAdminPanelSettings
+                        size={'20px'}
+                        style={{ color: 'A0A0A0' }}
+                      />
+                    )}
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+              <Collapse in={openStates[index]} timeout='auto' unmountOnExit>
+                {InList}
+              </Collapse>
             </div>
           ))}
         </List>
-        <div className='LogOutBox' onClick={handleClickOpen} >
-        <IoIosLogOut size="20px"/>
+        <div className='LogOutBox' onClick={handleClickOpen}>
+          <IoIosLogOut size='20px' />
         </div>
-        
       </Drawer>
 
       <div style={{ width: pgWidth, overflow: 'hidden' }} component='main'>
         <div id='name' className='DisplayBox'>
-          <Dashboard username= {UserObj.UserName} userType={UserObj.Role} adminStatus = {UserObj.UserName}/>
-          {CompoVis[0] && <UserInfo/>}
-          {CompoVis[1] && <UserUnlock/>}
-          {CompoVis[2] && <AccountingGroup/>}
-          {CompoVis[3] && <SocietyModify/>}
+          <Dashboard
+            username={UserObj.UserName}
+            userType={UserObj.Role}
+            adminStatus={UserObj.UserName}
+          />
+          {CompoVis[0] && <UserInfo />}
+          {CompoVis[1] && <UserUnlock />}
+          {CompoVis[2] && <AccountingGroup />}
+          {CompoVis[3] && <SocietyModify />}
         </div>
       </div>
       <Dialog
         open={outAlert}
         onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Logging Out of Namma society"}
+        <DialogTitle id='alert-dialog-title'>
+          {'Logging Out of Namma society'}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText id='alert-dialog-description'>
             Are you sure you want to Log out ?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button sx={{color:"#f00"}} onClick={handleLogOut} autoFocus>
+          <Button sx={{ color: '#f00' }} onClick={handleLogOut} autoFocus>
             Log out
           </Button>
         </DialogActions>
       </Dialog>
-
     </div>
   );
 };

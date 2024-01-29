@@ -10,6 +10,7 @@ import '../Css/Component.css';
 
 //----------firebase imports------
 import { getDatabase, ref, onValue } from 'firebase/database';
+// import { getAuthHeaders } from '../userAuth/UserAuth.js';
 import { useUserAuth } from '../userAuth/UserAuth';
 
 const UserInfo = () => {
@@ -37,45 +38,35 @@ const UserInfo = () => {
   //This is for options
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
+    handleInputChange('userType', event);
   };
+
   const handleChange2 = (event) => {
     setSelectedOption2(event.target.value);
+    handleInputChange('userAccessLevel', event);
   };
-  //Send to the backend
+
+  //Send to the backend copy paste this exactly wherever you need to send back to backend
+  const { user } = useUserAuth();
+
   const handleSubmit = async () => {
     try {
-      console.log(formData);
+      // Make a secure request to the backend API
+      const response = await fetch('http://localhost:3005/userInfo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${await user.getIdToken()}`,
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
-      console.log(error);
+      console.error('Error sending data to backend:', error);
     }
-    // try {
-    //   const response = await fetch('your-backend-endpoint', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
-
-    //   if (response.ok) {
-    //     console.log('Data sent successfully');
-    //   } else {
-    //     console.error('Failed to send data');
-    //   }
-    // } catch (error) {
-    //   console.error('Error during data submission:', error);
-    // }
   };
-
-  // const { user } = useUserAuth();
-  // useEffect(()=>{
-  //   const db = getDatabase();
-  //   const info = ref(db, 'users/'+ user.uid);
-  //   onValue(info, (snapshot)=>{
-  //     const data = snapshot.val()
-  //     console.log(data)
-  //   })
-  // })
 
   return (
     <InnerDisplay>
@@ -87,17 +78,18 @@ const UserInfo = () => {
       />
       <CustomPaper>
         <HighLight KeyWord='USER INFO' />
-        {/* <div style={{ display: 'flex', flexDirection: 'column' }}> */}
         <CustomInput
           label='User ID:'
           placeholder='Saroja_9827'
           onChange={(event) => handleInputChange('userId', event)}
         />
+        <div></div>
         <CustomInput
           label='User Name:'
           placeholder='Saroja'
           onChange={(value) => handleInputChange('userName', value)}
         />
+        <div></div>
         <CustomInputPassword
           label='Password:'
           placeholder='******'
@@ -116,7 +108,6 @@ const UserInfo = () => {
           value={selectedOption2}
           label='User Access Level:'
         />
-        {/* </div> */}
 
         <div className='buttonses'>
           <CustomButton buttonText='Add User' onClick={handleSubmit} />

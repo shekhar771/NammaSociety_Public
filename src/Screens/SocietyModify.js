@@ -5,6 +5,7 @@ import SubHeader from '../Components/SubHeader';
 import '../Css/SocGL.css';
 import SocietyInfo from './SocietyInfo.js';
 import BillingDetails from './BillingDetails.js';
+
 const SocietyModify = () => {
   const [subBody, setSubBody] = useState(Array(2).fill(false));
 

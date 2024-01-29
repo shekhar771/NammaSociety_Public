@@ -5,17 +5,17 @@ import {
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
-//   GoogleAuthProvider,
-//   signInWithPopup,
-} from "firebase/auth";
-import {auth} from "../Firebase/firebaseConfig"
-import { useNavigate } from "react-router-dom";
+  //   GoogleAuthProvider,
+  //   signInWithPopup,
+} from 'firebase/auth';
+import { auth } from '../Firebase/firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
-  const navigate =  useNavigate();
+  const navigate = useNavigate();
 
   function logIn(email, password) {
     // navigate("/");
@@ -23,7 +23,7 @@ export function UserAuthContextProvider({ children }) {
   }
 
   function logOut() {
-    navigate("/LogIn");
+    navigate('/LogIn');
     return signOut(auth);
   }
   // console.log(auth.currentUser);
@@ -56,7 +56,29 @@ export function UserAuthContextProvider({ children }) {
     </userAuthContext.Provider>
   );
 }
-
+export function useUserAuth2() {
+  return useContext(userAuthContext);
+}
 export function useUserAuth() {
   return useContext(userAuthContext);
 }
+// export function getAuthHeaders () {
+//   return useContext(userAuthContext);
+// }
+
+const getAuthHeaders = async () => {
+  const user = auth.currentUser;
+
+  if (user) {
+    const token = await user.getIdToken();
+    return {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    };
+  } else {
+    return {
+      'Content-Type': 'application/json',
+    };
+  }
+};
+export default getAuthHeaders;
