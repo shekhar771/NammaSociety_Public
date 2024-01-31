@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet" />
+    <link href="./css/adminuser_list.css" rel="stylesheet">
+    <title>Admin & User Login</title>
+    <script src="./js/adminuser_list.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+
+<body>
+    <section class="navbar">
+        <div class="logo">
+            <img src=".assets/namma.png" alt="Namma Society Logo">
+        </div>
+        <div class="status-bar"></div>
+        <span class="building">Raheja Vistas - Mumbai</span>
+        <span class="year">2023-2024</span>
+
+
+        <div class="year-drop">
+
+            <img src="assets/down-arrow.png">
+            <div class="year-dropdown-content">
+                <a href="#">2022-2023</a>
+                <a href="#">2023-2024</a>
+                <a href="#">2024-2025</a>
+            </div>
+        </div>
+
+        <div class="society-drop">
+            <img src="assets/down-arrow.png">
+            <div class="society-dropdown-content">
+                <a href="#">building 1</a>
+                <a href="#">building 2</a>
+                <a href="#">building 3</a>
+            </div>
+
+        </div>
+        <span class="finance">Financial Year</span>
+        <span class="name">Saroja S.</span>
+        <span class="super">Super Admin</span>
+        <div class="b-icon">
+            <div class="building-icon"><img src="assets/building.png"></div>
+        </div>
+        <div class="profile-icon"></div>
+        <span class="s-icon">S</span>
+    </section>
+
+
+    <section class="menu">
+        <div class="side-menu"></div>
+        <span class="menu-head">MENU
+            <div class="search-container">
+                <input class="search-bar" type="search" placeholder="Search">
+            </div>
+        </span>
+        <div class="logo">
+            <a href="index.html"><img src="./assets/namma.png" alt="Namma Logo" class="logo-img"></a>
+        </div>
+
+        </div>
+        <span class="namma"> Namma Society</span>
+        <span class="dashboard"><a href="/super_admin.html">Dashboard</a></span>
+        <span class="administrator">Administrator</span>
+        <span class="society">Society</span>
+        <span class="operations">Operations</span>
+        <span class="reports">Reports</span>
+        <span class="utility">Utility</span>
+        <span class="logout-d">Logout</span>
+        <div class="icon-circle"></div>
+
+        <div class="dash-icon">
+            <img src="assets/dashboard.png">
+        </div>
+
+        <div class="admin-icon">
+            <div class="ad-image-container">
+                <img src="assets/admin.png" alt="Admin Icon" class="ad-hover-trigger">
+                <div class="ad-dropdown-content">
+                    <a href="admin_user.html">User</a>
+                    <a href="user_unlock.html">User Unlock</a>
+                    <a href="adminuser_list.html">Admin & User List</a>
+                    <a href="accounting_groups.html">Accounting Groups</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="society-icon">
+            <img src="assets/society.png">
+        </div>
+        </div>
+
+        <div class="operation-icon">
+            <img src="assets/operations.png">
+        </div>
+        </div>
+
+        <div class="reports-icon">
+            <img src="assets/reports.png">
+        </div>
+        </div>
+
+        <div class="utility-icon">
+            <img src="assets/utility.png">
+        </div>
+
+        <div class="logout-icon">
+            <img src="assets/log-out.png">
+        </div>
+
+        </div>
+
+    </section>
+    <span class="adminuser-list-head">Administrator >> Admin and User Login</span>
+    <div class="data"></div>
+    <span class="users-heading">Admin and User Login</span>
+    <div class="userid-search-container">
+        <input class="userid-search-bar" type="search" placeholder="Search User ID/ User Name">
+    </div>
+        <div class="admin-heading">Admin</div>
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="level1">
+                <span>Level 1<button class="modify-btn"><a href="/modifylevel1.html">MODIFY</a></button></span>
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>6HS9BA7FD8</td>
+                            <td>Rajendra Prasad</td>
+                            <td>Raheja CHS</td>
+                        </tr>
+                        <tr>
+                            <td>9HS9BA7FD8</td>
+                            <td>Harsh Raju</td>
+                            <td>Kingston CHS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="level1">
+                <span>Level 2<button class="modify-btn"><a href="/modifylevel2.html">MODIFY</a></button></span>
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>6HS9BA7FD8</td>
+                            <td>Rajendra Prasad</td>
+                            <td>Raheja CHS</td>
+                        </tr>
+                        <tr>
+                            <td>9HS9BA7FD8</td>
+                            <td>Harsh Raju</td>
+                            <td>Kingston CHS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="level1">
+                <span>Level 3<button class="modify-btn"><a href="/modifylevel3.html">MODIFY</a></button></span>
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>6HS9BA7FD8</td>
+                            <td>Rajendra Prasad</td>
+                            <td>Raheja CHS</td>
+                        </tr>
+                        <tr>
+                            <td>9HS9BA7FD8</td>
+                            <td>Harsh Raju</td>
+                            <td>Kingston CHS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="adminuserlist-dropdown" onclick="toggleDropdown(this)">
+            <button class="societygroup-heading">
+                <span>Society Group<button class="modify-btn"><a href="/modifylsocietygroup.html">MODIFY</a></button></span>
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="adminuserlist-dropdown-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>6HS9BA7FD8</td>
+                            <td>Rajendra Prasad</td>
+                            <td>Raheja CHS</td>
+                        </tr>
+                        <tr>
+                            <td>9HS9BA7FD8</td>
+                            <td>Harsh Raju</td>
+                            <td>Kingston CHS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      
+    </div>
+
+
+</body>
+
+</html>

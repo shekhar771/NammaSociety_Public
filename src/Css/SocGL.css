@@ -1,0 +1,31 @@
+.GLContainer{
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    
+}
+.pgTitle{
+    display: flex;
+    width: 100%;
+    height: 8%;
+    text-align: left;
+    align-items:center ;
+    padding-left: 5%;
+    font-size: larger;
+    font-weight: bold;
+    background-color: aqua;
+
+}
+.selectBtn{
+    width:100%;
+    height: fit-content;
+    border: none;
+}
+.glselect{
+    background-color: rgba(0, 0, 0, 0);
+}

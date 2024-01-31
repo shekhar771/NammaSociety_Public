@@ -1,0 +1,478 @@
+ * {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.main-content {
+  width: 100%;
+  height: 2632px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.home-img {
+  width: 100%;
+  height: 875px;
+  background-color: rgba(78,78,78,0.6499999761581421);
+  filter: brightness(50%);
+  opacity: 4;
+  position: absolute;
+  top: 82px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.navbar {
+  width: 271px;
+  color: rgba(57,56,106,1);
+  position: absolute;
+  top: 20px;
+  left: 103px;
+  font-family: Karla;
+  font-weight: ExtraBold;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+
+#logo img{
+  height: 1%;
+  width: 6%; 
+  margin-left: 4px;
+  margin-bottom: 5px;
+}
+
+.home-text1 {
+  width: 100%;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 520px;
+  left: 137px;
+  font-family: Marko One;
+  font-weight: Regular;
+  font-size: 55px;
+  opacity: 1;
+  text-align: left;
+}
+.home-text2 {
+  width: 808px;
+  color: rgba(232,231,255,1);
+  position: absolute;
+  top: 633px;
+  left: 297px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+.nav-home {
+  width: 69px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 20px;
+  left: 630px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+.nav-home:hover{ 
+  font-size: 150%;
+}
+.nav-home a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-features {
+  width: 102px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 20px;
+  left: 750px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+.nav-features:hover{ 
+  font-size: 150%;
+}
+.nav-features a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-aboutus {
+  width: 105px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 20px;
+  left: 903px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+.nav-aboutus:hover{ 
+  font-size: 150%;
+}
+.nav-aboutus a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+.nav-contactus {
+  width: 130px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 20px;
+  left: 1052px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+.nav-contactus:hover{ 
+  font-size: 150%;
+}
+.nav-contactus a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-button {
+  width: 145px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 12px;
+  left: 1264px;
+  overflow: hidden;
+}
+
+.nav-button a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.login {
+  width: 135px;
+  height: 50px;
+  position: absolute;
+  color: 39386A;
+  background-color: rgba(191,228,255,1);
+  color: #39386A;
+  top: 0px;
+  left: 0px;
+  font-family: Outfit;
+  font-weight: Bold;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  
+}
+
+a{
+  text-decoration: none;
+}
+
+.login:hover{ 
+  background-color:  #39386A ;
+  color: #BFE4FF ;
+}
+
+/* .home-contact{
+  width: 181px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 713px;
+  left: 611px;
+  overflow: hidden;
+} */
+.contactusbtn-position {
+  position: absolute;
+ }
+
+.contactus-btn {
+ width: 180px;
+ height: 60px;
+ top: -1900px;
+ left: 650px;
+ background-color: #BFE4FF;
+ opacity: 1;
+ position: absolute;
+ font-size: 20px;
+ font-weight: bolder;
+ font-family: Outfit;
+ color: #39386A;
+ border-top-left-radius: 30px;
+ border-top-right-radius: 30px;
+ border-bottom-left-radius: 30px;
+ border-bottom-right-radius: 30px;
+ border: none;
+ overflow: hidden;
+ }
+ 
+ .contactus-btn:hover{
+   background-color:  #39386A ;
+   color: #BFE4FF ;
+ }
+
+.features-bg {
+  width: 100%;
+  height: 852px;
+  background: rgba(191,228,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 957px;
+  left: 0px;
+  overflow: hidden;
+}
+.features-text {
+  width: 216px;
+  color: rgba(57,56,106,1);
+  position: absolute;
+  top: 996px;
+  left: 596px;
+  font-family: Inika;
+  font-weight: Bold;
+  font-size: 55px;
+  opacity: 1;
+  text-align: left;
+}
+
+.box1 {
+  width: 556px;
+  height: 281px;
+  background: rgba(0,0,0,0.46000000834465027);
+  background-image: url("./assets/cloud.png");
+  opacity: 1;
+  position: absolute;
+  top: 1109px;
+  left: 145px;
+  overflow: hidden;
+}
+
+#cloud{
+  width: 556px;
+  height: 281px;
+
+}
+.box2 {
+  width: 556px;
+  height: 281px;
+  background: rgba(0,0,0,0.46000000834465027);
+  opacity: 1;
+  position: absolute;
+  top: 1109px;
+  left: 739px;
+  overflow: hidden;
+}
+.box3 {
+  width: 556px;
+  height: 281px;
+  background: rgba(0,0,0,0.46000000834465027);
+  opacity: 1;
+  position: absolute;
+  top: 1429px;
+  left: 145px;
+  overflow: hidden;
+}
+.box4 {
+  width: 556px;
+  height: 281px;
+  background: rgba(0,0,0,0.46000000834465027);
+  opacity: 1;
+  position: absolute;
+  top: 1429px;
+  left: 739px;
+  overflow: hidden;
+}
+.box1-font {
+  width: 399px;
+  height: 47px;
+  background: rgba(255,255,255,0.800000011920929);
+  opacity: 1;
+  position: absolute;
+  top: 1226px;
+  left: 223px;
+  overflow: hidden;
+}
+.box1-font1 {
+  width: 368px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1238px;
+  left: 239px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 19px;
+  opacity: 1;
+  text-align: left;
+}
+.box2-font {
+  width: 399px;
+  height: 47px;
+  background: rgba(255,255,255,0.800000011920929);
+  opacity: 1;
+  position: absolute;
+  top: 1232px;
+  left: 817px;
+  overflow: hidden;
+}
+.box2-font2 {
+  width: 266px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1243px;
+  left: 884px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 19px;
+  opacity: 1;
+  text-align: left;
+}
+.box3-font {
+  width: 399px;
+  height: 47px;
+  background: rgba(255,255,255,0.800000011920929);
+  opacity: 1;
+  position: absolute;
+  top: 1546px;
+  left: 223px;
+  overflow: hidden;
+}
+.box3-font3 {
+  width: 171px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1558px;
+  left: 337px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 19px;
+  opacity: 1;
+  text-align: left;
+}
+.box4-font {
+  width: 399px;
+  height: 47px;
+  background: rgba(255,255,255,0.800000011920929);
+  opacity: 1;
+  position: absolute;
+  top: 1546px;
+  left: 817px;
+  overflow: hidden;
+}
+.box4-font4 {
+  width: 356px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1558px;
+  left: 839px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 19px;
+  opacity: 1;
+  text-align: left;
+}
+.aboutus-img {
+  width: 615px;
+  height: 508px;
+  background: rgb(217, 217, 217);
+  opacity: 1;
+  position: absolute;
+  top: 1848px;
+  left: 825px;
+  overflow: hidden;
+}
+.aboutus-font {
+  width: 232px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1862px;
+  left: 91px;
+  font-family: Inika;
+  font-weight: Bold;
+  font-size: 54px;
+  opacity: 1;
+  text-align: left;
+}
+
+.footer {
+  width: 100%;
+  height: 237px;
+  background: rgba(57,56,106,1);
+  opacity: 1;
+  position: absolute;
+  top: 2395px;
+  left: 0px;
+  overflow: hidden;
+}
+.footer-text {
+  width: 358px;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 2456px;
+  left: 995px;
+  font-family: Bitter;
+  font-weight: Medium;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+  line-height: 193.6%;
+}
+.copyright {
+  width: 148px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2544px;
+  left: 92px;
+  font-family: Bitter;
+  font-weight: Medium;
+  font-size: 17px;
+  opacity: 1;
+  text-align: left;
+}
+.name {
+  color: #fff;
+}
+.aboutus-para {
+  width: 695px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1958px;
+  left: 86px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: justify;
+line-height: 193.6%;
+} 
+
+
+
+
