@@ -1,6 +1,8 @@
 import React from 'react'
 import '../Css/SocGL.css'
 import SubHeader from '../Components/SubHeader';
+import { CustomPaper, HighLight, InnerDisplay } from '../Components/Wrapper';
+import BreadCrumb from '../Components/BreadCrumbs';
 const SocGL = () => {
     const [assets,setAssets] = React.useState(false)
     const [liability,setLiability] = React.useState(false)
@@ -25,17 +27,21 @@ const SocGL = () => {
   
     
   return (
-    <div className='GLContainer'>
-      <text>breadcrumb</text>
-      <text className='pgTitle'>SOCIETY Gls</text>
+    <InnerDisplay>
+      <BreadCrumb
+        link1='Society'
+        link2='Society'
+        path1='/Home/'
+        path2='/Home/'
+      />
+      <CustomPaper>
+        <HighLight KeyWord='Soc General Ledgure'/>
       <div className='selectBtn' onClick={handleAssets} ><SubHeader  barname ={"Assets"} openStatus = {assets}/></div>
-      <div style={{width:"100%", height:"10%", display: assetTbale, }}>
-
-      </div>
       <div className='selectBtn' onClick={handleLiability}><SubHeader barname ={"Liability"} openStatus = {liability}/></div>
       <div className='selectBtn' onClick={handleIncome}><SubHeader  barname ={"Income"}  openStatus = {income}/></div>
       <div className='selectBtn' onClick={handleExpand}><SubHeader  barname ={"Expanditure"} openStatus = {expanditure}/></div>
-    </div>
+      </CustomPaper>
+    </InnerDisplay>
   )
 }
 

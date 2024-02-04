@@ -32,9 +32,10 @@
   padding: 2vh 0vh;
 }
 
-.table {
+/* .table {
   border: 1px solid #ddd;
-}
+  width: 100%;
+} */
 .tableCell {
   color: #e6f5f1;
   background-color: #e6f5f1;

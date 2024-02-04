@@ -6,8 +6,16 @@ import Splash from './Screens/SplashScr';
 import ForgotPassword from './Screens/ForgotPswd';
 import HomeScreen from './Screens/HomeScreen';
 import MainScreen from './Screens/MainScreen';
-import SocietyInfo from './Screens/SocietyInfo';
+
+import YourData from './Screens/YourData';
+import CreateSociety from './Screens/CreateSociety';
+import UserUnlock from './Screens/UserUnlock';
+import UserInfo from './Screens/UserInfo';
+import SocietyCreation from './Screens/SocietyCreation1';
 import SocietyModify from './Screens/SocietyModify';
+import SocGL from './Screens/SocGL';
+import EditSociety from './Screens/EditSociety';
+
 function App() {
   return (
     <div
@@ -34,12 +42,18 @@ function App() {
             <Route path='/' element={<Splash />} />
             <Route path='/LogIn' element={<LogIn />} />
             <Route path='/ForgotPassword' element={<ForgotPassword />} />
-            <Route path='/Home/*' element={<HomeScreen />} />
+            <Route path='/Home' element={<HomeScreen />}>
+              <Route path='/Home/YourData' element={<YourData />} />
+              <Route path='/Home/UserUnlock' element={<UserUnlock />} />
+              <Route path='/Home/UserInfo' element={<UserInfo />} />
+              <Route path='/Home/SocietyCreate' element={<CreateSociety />} />
+              <Route path='/Home/Society' element={<SocietyCreation />} />
+              <Route path='/Home/EditSociety' element={<EditSociety />} />
+              <Route path='/Home/SocietyModify' element={<SocietyModify />} />
+              <Route path='/Home/SocGL' element={<SocGL />} />
+            </Route>
             <Route path='/MainScreen' element ={<MainScreen/>}/>
-            <Route path='/SocietyModify' element ={<SocietyModify/>}/>
-            {/* <Route path='/AccountingGroup' element={<AccountingGroup />} />
-            <Route path='/UserUnlock' element={<UserUnlock />} />
-            <Route path='/' element={<UserInfo />} /> */}
+
           </Routes>
         </div>
       </UserAuthContextProvider>

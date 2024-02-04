@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import '../Css/Component.css'
 import { Collapse, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { FaAngleDown } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 //Use UserUnlock as an example
 
 //Title tag
@@ -17,6 +18,7 @@ export const HighLight = ({ KeyWord }) => {
 // };
 
 //Paper module
+
 
 const Pager = ({ children }) => {
   return (
@@ -55,7 +57,7 @@ export const AdminInnList = ({ListItemClick}) =>{
     < List >
     {[
       {text:"User"},
-      {text:"Userunlock"},
+      {text:"User unlock"},
       {text:"AdminList"},
       {text:"Accounting group"},
     ].map(({text}, index)=>(
@@ -69,10 +71,34 @@ export const AdminInnList = ({ListItemClick}) =>{
   </div>
 }
 
+
+
+
+
+
 const SocInfoInList = () =>{
+  const navigate = useNavigate()
+  const handleSocInfoList=(index)=>{
+    switch(index){
+      case 0:
+        navigate('/Home/Society');
+        break;
+      case 1:
+        navigate('/Home/UserUnlock')
+        break;
+      case 2 :
+        navigate('/Home/SocGL')
+        break;
+      case 3 :
+        navigate('/Home/UserUnlock')
+        break;
+      default:
+        navigate('/Home/YourData')}
+  }
   return <div style={{marginLeft:"20px",borderLeft:"0.5px solid", borderColor:"#ccc"}}> 
     < List >
     {[
+      "Society Info",
       "Billing Heads",
       "Soc Gls",
       "Invoice Note",
@@ -82,7 +108,7 @@ const SocInfoInList = () =>{
       "User List",
     ].map((text, index)=>(
       <ListItem key ={text} disablePadding>
-        <ListItemButton style={{minHeight:48}}>
+        <ListItemButton style={{minHeight:48}} onClick={()=> handleSocInfoList(index)}>
           <ListItemText primary ={text}/>
         </ListItemButton>
       </ListItem>
@@ -100,7 +126,7 @@ export const SocietyInList = () =>{
     < List >
     <ListItem disablePadding>
       <ListItemButton onClick={handleOpenSocInfo} style={{minHeight:48}}>
-        <ListItemText primaryTypographyProps={{color:"rgba(57, 56, 106, 1)", fontWeight:"bold"}} primary ={'Society Info'}/>
+        <ListItemText primaryTypographyProps={{color:"rgba(57, 56, 106, 1)", fontWeight:"bold"}} primary ={'Society'}/>
         <ListItemIcon><FaAngleDown/></ListItemIcon>
       </ListItemButton>
     </ListItem>

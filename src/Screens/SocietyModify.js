@@ -16,7 +16,10 @@ const SocietyModify = () => {
       return newSubBody;
     });
   };
-
+  const [SocForm,setSocForm] = useState('')
+  const getSocForm =(socInfo)=>{
+    setSocForm(socInfo)
+  }
   return (
     <InnerDisplay>
       <BreadCrumb
@@ -30,7 +33,7 @@ const SocietyModify = () => {
         <div className='selectBtn' onClick={() => handleSubBody(1)}>
           <SubHeader barname={'Society Information'} openStatus={subBody[1]} />
         </div>
-        {subBody[1] && <SocietyInfo />}
+        {subBody[1] && <SocietyInfo handleNewSoc={getSocForm} />}
         <div className='selectBtn' onClick={() => handleSubBody(2)}>
           <SubHeader
             barname={'Interest Details for Billing'}

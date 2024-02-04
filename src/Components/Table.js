@@ -56,8 +56,8 @@ const CustomizedTables = () => {
   };
 
   return (
-    <TableContainer className={Style.table} component={Paper}>
-      <Table className={Style.table}>
+    <TableContainer className='TContainer'>
+      <Table className='TContainer' >
         <TableHead>
           <TableRow>
             <TableCell className={Style.tableCell}>User ID </TableCell>
@@ -91,7 +91,7 @@ const CustomizedTables = () => {
         </TableBody>
       </Table>
       <TablePagination
-        className={Style.page}
+        // className={Style.page}
         rowsPerPageOptions={[5, 10, 25]}
         component='div'
         count={rows.length}

@@ -26,17 +26,18 @@ import '../Css/HomeScreen.css';
 import ApBarStyle from '../Css/Toolbar.module.css';
 import Dashboard from './Dashboard';
 //-----Navigation import---------//
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 // ---- pages import ------------userlock is working properly
 import SocGL from './SocGL';
 import UserUnlock from './UserUnlock';
 import UserInfo from './UserInfo';
-import AccountingGroup from './AccountingGroup';
 import AdminUserLogin from './AdminUserLogin';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import SocietyInfo from './SocietyInfo';
 import SocietyModify from './SocietyModify';
 import BillingDetails from './BillingDetails';
+import YourData from './YourData';
+import CreateSociety from './CreateSociety';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 // import { useNavigate, createSearchParams } from "react-router-dom";
 // import { getDatabase, ref, get, child } from "firebase/database";
@@ -51,7 +52,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import { useEffect } from 'react';
-
+import SocietyCreation from './SocietyCreation1';
 import {
   AdminInnList,
   SocietyInList,
@@ -103,7 +104,7 @@ const HomeScreen = () => {
   //=========Manage navigation and user info==========//
   const location = useLocation();
   // const data = location.state;
-  const dataJson = JSON.parse(location.state);
+  // const dataJson = JSON.parse(location.state);
   const navigate = useNavigate();
   //==============get user data ==================//
 
@@ -115,16 +116,14 @@ const HomeScreen = () => {
       const data = snapshot.val();
       setUserObj(data);
     });
-  });
+  },[]);
 
   //=========Manage drawer and viewBox width==========//
   const theme = useTheme();
   // const [dashData, setDash] = React.useState(JSON.parse(location.state))
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
-  const [pgWidth, setPgWidth] = React.useState(
-    parseInt(window.innerWidth - parseInt(theme.spacing(7)) - 1)
-  );
+  const [pgWidth, setPgWidth] = React.useState(parseInt(window.innerWidth - parseInt(theme.spacing(7)) - 1));
   const [hide, setHide] = React.useState('none');
   const windowSize = React.useRef([window.innerWidth]);
   const [openStates, setOpenStates] = React.useState(Array(6).fill(false)); // Initial state, assuming 6 items
@@ -153,31 +152,71 @@ const HomeScreen = () => {
   //send
   const auth = getAuth();
 
-  //=========Drawer Inner List====================//
-  const handleListItem = (index) => {
-    if (open == true) {
-      setOpenStates((prevOpenStates) => {
-        const newOpenStates = [...prevOpenStates];
-        newOpenStates[index] = !newOpenStates[index]; // Toggle the state for the clicked item
-        return newOpenStates;
+  const sendIdTokenToBackend = (idToken) => {
+    fetch('http://localhost:3005/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ idToken }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log({ data });
+        // Handle the response from the backend if needed
+      })
+      .catch((error) => {
+        console.error('Error sending ID token to backend:', error);
       });
+  };
+
+  // React.useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       user.getIdToken().then((idToken) => {
+  //         // Send the idToken to your backend
+  //         sendIdTokenToBackend(idToken);
+  //       });
+  //     } else {
+  //       // User is signed out
+  //       // Handle accordingly
+  //     }
+  //   });
+  // });
+
+//=========Drawer Inner List====================//
+ const handleListItem = (index) =>{
+  if (open == true)
+  {setOpenStates((prevOpenStates) => {
+    const newOpenStates = [...prevOpenStates];
+    newOpenStates[index] = !newOpenStates[index]; // Toggle the state for the clicked item
+    return newOpenStates;});}
+    if (index == 0 ){
+      navigate('/Home/YourData')
     }
-  };
+  }
 
-  const [CompoVis, setCompVis] = React.useState(Array(4).fill(false));
-  const handleItemClick = (index) => {
-    setCompVis(Array(4).fill(false));
-    setCompVis((preItemState) => {
-      const newItemStates = [...preItemState];
-      newItemStates[index] = !newItemStates[index];
-      return newItemStates;
-    });
-  };
-
+  const handleItemClick = (index) =>{
+    switch(index){
+      case 0:
+        navigate('/Home/UserInfo');
+        break;
+      case 1:
+        navigate('/Home/UserUnlock')
+        break;
+      case 2 :
+        navigate('/Home/UserUnlock')
+        break;
+      case 3 :
+        navigate('/Home/UserUnlock')
+        break;
+      default:
+        navigate('/Home/YourData')
+    }};
   //==========logout============//
   const handleClickOpen = () => {
     setAlert(true);
-    console.log(dataJson);
+    // console.log(dataJson);
   };
   const handleClose = () => {
     setAlert(false);
@@ -239,10 +278,7 @@ const HomeScreen = () => {
         <List>
           {[
             { text: 'Dashboard', InList: [<div></div>] },
-            {
-              text: 'Administrator',
-              InList: [<AdminInnList ListItemClick={handleItemClick} />],
-            },
+            {text: 'Administrator',InList: [<AdminInnList ListItemClick={handleItemClick} />]},
             { text: 'Society', InList: [<SocietyInList />] },
             { text: 'Operations', InList: [<OperaInList />] },
             { text: 'Reports', InList: [<RepoInList />] },
@@ -315,15 +351,13 @@ const HomeScreen = () => {
 
       <div style={{ width: pgWidth, overflow: 'hidden' }} component='main'>
         <div id='name' className='DisplayBox'>
-          <Dashboard
-            username={UserObj.UserName}
-            userType={UserObj.Role}
-            adminStatus={UserObj.UserName}
-          />
-          {CompoVis[0] && <UserInfo />}
-          {CompoVis[1] && <UserUnlock />}
-          {CompoVis[2] && <AccountingGroup />}
-          {CompoVis[3] && <SocietyModify />}
+          <Dashboard />
+          <Outlet/>
+          {/* <YourData/> */}
+          {/* {CompoVis[0] && <UserInfo/>}
+          {CompoVis[1] && <UserUnlock/>}
+          {CompoVis[2] && <UserUnlock/>}
+          {CompoVis[3] && <SocietyModify/>} */}
         </div>
       </div>
       <Dialog

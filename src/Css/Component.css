@@ -15,9 +15,12 @@
 .highLight {
   width: 95%;
   height: 30px;
+  color: #000;
+  font-style: normal;
   font-family: 'Inter', sans-serif;
   text-align: left;
   font-size: 25px;
+  font-weight: 600;
   letter-spacing: 0;
   white-space: nowrap;
   margin-bottom: 3vh;
@@ -32,9 +35,7 @@
   padding: 2vh 0vh;
 }
 
-.table {
-  border: 1px solid #ddd;
-}
+
 .tableCell {
   color: #e6f5f1;
   background-color: #e6f5f1;
@@ -234,9 +235,11 @@
   text-align: center;
   width: 95%;
   /* box-shadow: 5px 5px 4px 4px rgba(0, 0, 0, 0.3); */
-
-  box-shadow: -10px 8px 15px rgba(0, 0, 0, 0.1),
-    /*left and bottom*/ 10px 8px 15px rgba(0, 0, 0, 0.1); /*right and bottom*/
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.18);
+  /* box-shadow: -10px 8px 15px rgba(0, 0, 0, 0.1), */
+    /*left and bottom*/ 
+    /* 10px 8px 15px rgba(0, 0, 0, 0.1); */
+     /*right and bottom*/
 
   overflow-y: scroll;
 }
@@ -251,6 +254,7 @@
   height: fit-content;
   margin-top: 1vh;
   width: 80%;
+  margin-bottom: 50px;
   /* height: fit-content; */
   /* background-color: tomato; */
 }
@@ -261,4 +265,24 @@
   border: 1px solid;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+/*======================================= */
+.TContainer{
+  width: 300px;
+}
+/*======================================= */
+
+.table{
+  width: 100%;
+  max-width: 100%;
+}
+
+.inputMainSociety {
+  display: flex;
+  align-items: center;
+  padding: 3vh 8vw;
+  width: 90%;
+  white-space: nowrap;
+  /* justify-content: space-between; */
 }

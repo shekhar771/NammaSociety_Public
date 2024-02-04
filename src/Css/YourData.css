@@ -1,0 +1,38 @@
+.BtnContStrip{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.Filler{
+    height: 80px;
+    min-width: 400px;
+}
+
+
+.DBtnSty{
+    background-color: #E6F5F1;
+    min-width: 400px;
+    align-items: center;
+    height: 80px;
+    box-shadow: 0px 2px 12.8px 0px rgba(0, 0, 0, 0.25);
+}
+.DBtnTxtBx{
+    text-align: start;
+}
+
+.DBtnTxt{
+    color: #5B5B5B;
+    font-size: 24px;
+    margin-left: 10px;
+    font-weight: normal;
+}
+.DBtnNum{
+    color: #39386A;
+    font-size: 50px;
+    font-weight: bolder;
+}

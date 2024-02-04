@@ -11,7 +11,7 @@ const Splash = () => {
 
 
 const navToHome = (details) => {
-  navigate("/Home", { state: details });
+  navigate("/Home/YourData", { state: details });
 };
 
   React.useEffect(() => {

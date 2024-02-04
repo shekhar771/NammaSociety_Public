@@ -76,11 +76,18 @@ justify-content: center;
 align-items: center
 }
 .typeLogo{
+  display: flex;
+  font-size: 25px;
+  color: aliceblue;
+  font-weight: bolder;
   height: 50px;
   width: 50px;
   border-radius: 25px;
   margin-left:20px ;
   background-color: chartreuse;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 .Name-type{
   display: flex;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Css/Dashboard.css'
 
 import Box from '@mui/material/Box';
@@ -12,19 +12,18 @@ import { useUserAuth } from "../userAuth/UserAuth";
 import { getDataGridUtilityClass } from '@mui/x-data-grid';
 import { getDatabase , ref, child, onValue} from 'firebase/database';
 
-const Dashboard = ({username , userType, adminStatus}) => {
+const Dashboard = ({username, userType }) => {
 
-  const [building, setBuilding] = React.useState('');
   const [financialYr, setYear] = React.useState('');
-  const handleBuinding = (event) => {
-      setBuilding(event.target.value);
-  };
   const handleYear =(event)=>{
       setYear(event.target.value)
   }
   const [db_Socs,setDbSoc] = React.useState([])
   const db =  getDatabase();
   const Soc_list = ref(db ,'Society/' );
+  const {user,logOut} = useUserAuth();
+  const user_Data = ref(db,'Users/'+user.uid)
+  const [DashDetail , setDashDetail] = useState('')
 
   useEffect(()=>{
     onValue(Soc_list,(snapshot)=>{
@@ -32,11 +31,20 @@ const Dashboard = ({username , userType, adminStatus}) => {
       setDbSoc(data)
     })
   },[])
+
+  useEffect(()=>{
+    onValue(user_Data,(snapshot)=>{
+      const data = snapshot.val()
+      setDashDetail(data)
+      console.log(data)
+    })
+  },[])
+
   const [seleSoc ,setSeleSoc ] = React.useState("")
   const handlSeleSoc =(event)=>{
     setSeleSoc(event.target.value)
+    console.log(DashDetail)
   }
-
 
   return (
     <div className='DashboardBox'>
@@ -74,14 +82,14 @@ const Dashboard = ({username , userType, adminStatus}) => {
         </div>
         <div className='Name-type-logo' >
         <div style={{flexDirection:"column"}} className= 'Name-type'>
-            <text className='Headertxt'>
-                {username}
+            <text className='Headertxt' >
+              DashDetail.Name
             </text>
             <text className='userType'>
-                {userType}
+              DashDetail.Role
             </text>
         </div>
-        <div className='typeLogo'></div>
+        <div className='typeLogo'>S</div>
         </div>
       </div>
     </div>
