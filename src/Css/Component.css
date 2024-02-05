@@ -27,14 +27,13 @@
 }
 .breadCrumb {
   color: rgba(160.21173030138016, 160.21173030138016, 160.21173030138016, 1);
-  top: 158px;
   font-family: Karla;
   text-align: left;
   font-size: 20px;
   letter-spacing: 0;
   padding: 2vh 0vh;
+  margin-left: 0.5%;
 }
-
 
 .tableCell {
   color: #e6f5f1;
@@ -229,19 +228,19 @@
   padding: 20px;
   border-radius: 10px;
   /* so uncomment the min hieght and comment out the overflow and hieght property to check */
-  /* min-height: 75vh; */
+  min-height: 75vh;
 
-  height: 90vh;
+  /* height: 90vh; */
   text-align: center;
   width: 95%;
   /* box-shadow: 5px 5px 4px 4px rgba(0, 0, 0, 0.3); */
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.18);
   /* box-shadow: -10px 8px 15px rgba(0, 0, 0, 0.1), */
-    /*left and bottom*/ 
-    /* 10px 8px 15px rgba(0, 0, 0, 0.1); */
-     /*right and bottom*/
+  /*left and bottom*/
+  /* 10px 8px 15px rgba(0, 0, 0, 0.1); */
+  /*right and bottom*/
 
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .customPaper::-webkit-scrollbar {
   width: 0;
@@ -253,7 +252,7 @@
   /* display: flex; */
   height: fit-content;
   margin-top: 1vh;
-  width: 80%;
+  width: 95%;
   margin-bottom: 50px;
   /* height: fit-content; */
   /* background-color: tomato; */
@@ -268,12 +267,12 @@
 }
 
 /*======================================= */
-.TContainer{
+.TContainer {
   width: 300px;
 }
 /*======================================= */
 
-.table{
+.table {
   width: 100%;
   max-width: 100%;
 }

@@ -24,7 +24,7 @@ function App() {
         alignItems: 'center',
         width: '100vh,',
         height: '100vh',
-        backgroundColor:"#151",
+        backgroundColor: '#151',
         justifyContent: 'center',
       }}
     >
@@ -52,8 +52,8 @@ function App() {
               <Route path='/Home/SocietyModify' element={<SocietyModify />} />
               <Route path='/Home/SocGL' element={<SocGL />} />
             </Route>
-            <Route path='/MainScreen' element ={<MainScreen/>}/>
 
+            <Route path='/MainScreen' element={<MainScreen />} />
           </Routes>
         </div>
       </UserAuthContextProvider>

@@ -71,10 +71,10 @@ const UserInfo = () => {
   return (
     <InnerDisplay>
       <BreadCrumb
-        link1='Society'
-        link2='Society'
+        link1='Administrator'
+        link2='UserInfo'
         path1='/Home/'
-        path2='/Home/'
+        path2='/Home/UserInfo'
       />
       <CustomPaper>
         <HighLight KeyWord='USER INFO' />
