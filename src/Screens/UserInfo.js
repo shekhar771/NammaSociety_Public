@@ -7,11 +7,24 @@ import CustomInput, { CustomInputPassword } from '../Components/Input.js';
 import CustomSelect from '../Components/InputSelect.js';
 //----------Css------
 import '../Css/Component.css';
+// Import your Firebase Firestore or Realtime Database instance
 
 //----------firebase imports------
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, update, push, set, child } from 'firebase/database';
+
+import {
+  //   createUserWithEmailAndPassword, -->to be added later
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  sendPasswordResetEmail,
+  //   GoogleAuthProvider,
+  //   signInWithPopup,
+} from 'firebase/auth';
 // import { getAuthHeaders } from '../userAuth/UserAuth.js';
 import { useUserAuth } from '../userAuth/UserAuth';
+import { auth } from '../Firebase/firebaseConfig.js';
 
 const UserInfo = () => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -26,6 +39,7 @@ const UserInfo = () => {
     userType: '',
     userAccessLevel: '',
   });
+
   //This is for Custom Button To input
   const handleInputChange = (fieldName, event) => {
     const value = event.target.value;
@@ -45,12 +59,12 @@ const UserInfo = () => {
     setSelectedOption2(event.target.value);
     handleInputChange('userAccessLevel', event);
   };
-
-  //Send to the backend copy paste this exactly wherever you need to send back to backend
   const { user } = useUserAuth();
 
   const handleSubmit = async () => {
     try {
+      console.log(JSON.stringify(formData));
+      console.log(`Bearer ${await user.getIdToken()}`);
       // Make a secure request to the backend API
       const response = await fetch('http://localhost:3005/userInfo', {
         method: 'POST',
@@ -67,6 +81,54 @@ const UserInfo = () => {
       console.error('Error sending data to backend:', error);
     }
   };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     // Create user with email and password
+  //     const userCredential = await createUserWithEmailAndPassword(
+  //       auth,
+  //       formData.userName,
+  //       formData.password
+  //     );
+  //     // const uida = userCredential.user.uid;
+  //     const uid = userCredential.user.uid;
+  //     // Assign selected role to the user
+  //     const userRolesRef = ref(db, 'Users');
+  //     const userRolesData = {
+  //       UserId: formData.userId,
+  //       role: formData.userType,
+  //       uid: uid, // Use uid as the key
+  //     };
+  //     set(child(userRolesRef, uid), userRolesData); // Set data with uid as the key
+
+  //     // Update additional permissions if the role is admin
+  //     // if (formData.userType === 'Admin' || formData.userType === 'Superadmin') {
+  //     const additionalPermissionsRef = ref(db, 'additionalPermissions');
+  //     const adminPermissions = {
+  //       canChangeColor: {
+  //         [uid]: true,
+  //       },
+  //       canChangeBuildingNo: {
+  //         [uid]: true,
+  //       },
+  //     };
+  //     update(additionalPermissionsRef, adminPermissions);
+
+  //     // Reset form fields
+  //     setFormData({
+  //       userId: '',
+  //       userName: '',
+  //       password: '',
+  //       userType: '',
+  //       userAccessLevel: '',
+  //     });
+  //     setErrorMessage('');
+  //     console.log('Success');
+  //   } catch (error) {
+  //     setErrorMessage(error.message);
+  //   }
+  // };
 
   return (
     <InnerDisplay>

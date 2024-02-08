@@ -261,7 +261,7 @@
 .subBodyDp {
   width: 100%;
   padding: 20px;
-  border: 1px solid;
+  border: 1px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -284,4 +284,76 @@
   width: 90%;
   white-space: nowrap;
   /* justify-content: space-between; */
+}
+.CustomSelector {
+  /* margin-bottom: 2vh; */
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.customInbut {
+  white-space: nowrap;
+  width: auto; /* Allow the width to adjust based on content */
+  min-width: fit-content;
+
+  /* width: 18.5vh; */
+  padding: 2vh 3vh;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #39386a;
+  background: #f9f9f9;
+  margin: 1vh 0.2vw;
+
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Added box-shadow transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 25vw; /* Set a maximum width for the button */
+}
+.customInbut.active {
+  color: #39386a;
+  background-color: #e6f5f1;
+  /* color: hsl(205, 100%, 87%); */
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2); /* Increased box shadow on hover */
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .customInbut {
+    white-space: nowrap;
+  }
+  .CustomSelector {
+    /* margin-bottom: 2vh; */
+    width: 100%;
+    display: block;
+  }
+}
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  .customInbut {
+    width: 12vh;
+    font-size: 15px;
+    margin: 0.5vh;
+    max-width: 70px; /* Adjust the maximum width for even smaller screens */
+  }
+  .CustomSelector {
+    /* margin-bottom: 2vh; */
+    width: auto;
+    display: block;
+  }
+}
+.TContainer2 {
+  border: 1px solid #a0a0a0;
+}
+.customModify {
+  background-color: #39a930;
+  border-radius: 15px;
+  color: #f9f9f9;
+  padding: 1vh 1vw;
+  transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Added box-shadow transition */
+}
+.customModify:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #2a7a24;
 }
