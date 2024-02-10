@@ -8,7 +8,7 @@ import ADLTable from '../Components/ADLTable.js';
 // import ModifyButton from '../Components/ModifyButton';
 import BillingDetails from './BillingDetails.js';
 
-const SocietyModify = () => {
+const AdminUserLogin = () => {
   const [subBody, setSubBody] = useState(Array(2).fill(false));
 
   const handleSubBody = (index) => {
@@ -46,7 +46,7 @@ const SocietyModify = () => {
           <SubHeader barname={'Level 3'} openStatus={subBody[3]} /> 
         </div>
         {subBody[3] && <ADLTable />}
-        <div  onClick={() => handleSubBody(4)}>
+        <div onClick={() => handleSubBody(4)}>
           <SubHeader barname={'Society Group'} openStatus={subBody[4]}/>
         </div>
         {subBody[4] && <ADLTable />}
@@ -56,4 +56,4 @@ const SocietyModify = () => {
   );
 };
 
-export default SocietyModify;
+export default AdminUserLogin;
