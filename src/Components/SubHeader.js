@@ -10,7 +10,7 @@ const SubHeader = ({barname , openStatus}) => {
       <Grid item xs = {10.8} className='SubTxtBox' ><text className='SubHeadtxt'>{barname}</text></Grid>
       <Grid item xs = {1} >
         {
-        openStatus === true ?(<IoTriangleOutline style={{transform:'rotate(0deg)'}}/>):(<IoTriangleOutline style={{transform:'rotate(180deg)'}}/>) 
+        openStatus === true ?(<IoTriangleOutline style={{transform:'rotate(0deg)'}}/>):(<IoTriangleOutline style={{transform:'rotate(180deg)', color:'green'}}/>) 
       }
       </Grid>
     </Grid>
