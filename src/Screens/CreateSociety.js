@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CustomPaper, HighLight, InnerDisplay } from '../Components/Wrapper';
 import BreadCrumb from '../Components/BreadCrumbs';
 import SocietyInfo from './SocietyInfo';
@@ -15,7 +15,6 @@ const CreateSociety = () => {
   const socKey = push(ref(db, 'societies')).key;
   const socInfoRef = ref(db, 'societies/' + socKey);
   const socNameRef = ref(db, 'societyNames/' + socKey);
-
   // const socInfoRef = push(ref(db,'societies'))
   // const socNameRef = ref(db,'societyNames/'+socInfoRef.key)
   const [SocForm, setSocForm] = useState('');

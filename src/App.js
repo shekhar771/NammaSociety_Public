@@ -15,6 +15,9 @@ import SocietyCreation from './Screens/SocietyCreation1';
 import SocietyModify from './Screens/SocietyModify';
 import SocGL from './Screens/SocGL';
 import EditSociety from './Screens/EditSociety';
+import ModifyBilling from './Components/ModifyBilling';
+import CreateUser from './Screens/CreateUser';
+import BillingHeads from './Screens/BillingHeads';
 
 function App() {
   return (
@@ -50,7 +53,12 @@ function App() {
               <Route path='/Home/Society' element={<SocietyCreation />} />
               <Route path='/Home/EditSociety' element={<EditSociety />} />
               <Route path='/Home/SocietyModify' element={<SocietyModify />} />
+              <Route path='/Home/CreateUser' element={<CreateUser />} />
+
               <Route path='/Home/SocGL' element={<SocGL />} />
+
+              <Route path='/Home/BillingHeads' element={<BillingHeads />} />
+              <Route path='/Home/ModifyBilling' element={<ModifyBilling />} />
             </Route>
 
             <Route path='/MainScreen' element={<MainScreen />} />

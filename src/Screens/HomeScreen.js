@@ -116,14 +116,16 @@ const HomeScreen = () => {
       const data = snapshot.val();
       setUserObj(data);
     });
-  },[]);
+  }, []);
 
   //=========Manage drawer and viewBox width==========//
   const theme = useTheme();
   // const [dashData, setDash] = React.useState(JSON.parse(location.state))
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
-  const [pgWidth, setPgWidth] = React.useState(parseInt(window.innerWidth - parseInt(theme.spacing(7)) - 1));
+  const [pgWidth, setPgWidth] = React.useState(
+    parseInt(window.innerWidth - parseInt(theme.spacing(7)) - 1)
+  );
   const [hide, setHide] = React.useState('none');
   const windowSize = React.useRef([window.innerWidth]);
   const [openStates, setOpenStates] = React.useState(Array(6).fill(false)); // Initial state, assuming 6 items
@@ -149,70 +151,39 @@ const HomeScreen = () => {
       setPgWidth(windowSize.current - drawerWidth);
     }
   };
-  //send
-  const auth = getAuth();
 
-  const sendIdTokenToBackend = (idToken) => {
-    fetch('http://localhost:3005/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ idToken }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log({ data });
-        // Handle the response from the backend if needed
-      })
-      .catch((error) => {
-        console.error('Error sending ID token to backend:', error);
+  //=========Drawer Inner List====================//
+  const handleListItem = (index) => {
+    if (open == true) {
+      setOpenStates((prevOpenStates) => {
+        const newOpenStates = [...prevOpenStates];
+        newOpenStates[index] = !newOpenStates[index]; // Toggle the state for the clicked item
+        return newOpenStates;
       });
+    }
+    if (index == 0) {
+      navigate('/Home/YourData');
+    }
   };
 
-  // React.useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       user.getIdToken().then((idToken) => {
-  //         // Send the idToken to your backend
-  //         sendIdTokenToBackend(idToken);
-  //       });
-  //     } else {
-  //       // User is signed out
-  //       // Handle accordingly
-  //     }
-  //   });
-  // });
-
-//=========Drawer Inner List====================//
- const handleListItem = (index) =>{
-  if (open == true)
-  {setOpenStates((prevOpenStates) => {
-    const newOpenStates = [...prevOpenStates];
-    newOpenStates[index] = !newOpenStates[index]; // Toggle the state for the clicked item
-    return newOpenStates;});}
-    if (index == 0 ){
-      navigate('/Home/YourData')
-    }
-  }
-
-  const handleItemClick = (index) =>{
-    switch(index){
+  const handleItemClick = (index) => {
+    switch (index) {
       case 0:
         navigate('/Home/UserInfo');
         break;
       case 1:
-        navigate('/Home/UserUnlock')
+        navigate('/Home/UserUnlock');
         break;
-      case 2 :
-        navigate('/Home/UserUnlock')
+      case 2:
+        navigate('/Home/UserUnlock');
         break;
-      case 3 :
-        navigate('/Home/UserUnlock')
+      case 3:
+        navigate('/Home/UserUnlock');
         break;
       default:
-        navigate('/Home/YourData')
-    }};
+        navigate('/Home/YourData');
+    }
+  };
   //==========logout============//
   const handleClickOpen = () => {
     setAlert(true);
@@ -278,7 +249,10 @@ const HomeScreen = () => {
         <List>
           {[
             { text: 'Dashboard', InList: [<div></div>] },
-            {text: 'Administrator',InList: [<AdminInnList ListItemClick={handleItemClick} />]},
+            {
+              text: 'Administrator',
+              InList: [<AdminInnList ListItemClick={handleItemClick} />],
+            },
             { text: 'Society', InList: [<SocietyInList />] },
             { text: 'Operations', InList: [<OperaInList />] },
             { text: 'Reports', InList: [<RepoInList />] },
@@ -352,7 +326,7 @@ const HomeScreen = () => {
       <div style={{ width: pgWidth, overflow: 'hidden' }} component='main'>
         <div id='name' className='DisplayBox'>
           <Dashboard />
-          <Outlet/>
+          <Outlet />
           {/* <YourData/> */}
           {/* {CompoVis[0] && <UserInfo/>}
           {CompoVis[1] && <UserUnlock/>}

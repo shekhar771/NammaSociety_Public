@@ -12,3 +12,22 @@ const CustomButton = ({ buttonText, onClick }) => {
 };
 
 export default CustomButton;
+
+export const CustomSelector = ({ buttonText, active, onClick }) => {
+  return (
+    <button
+      className={`customInbut ${active ? 'active' : ''}`}
+      onClick={onClick}
+    >
+      {buttonText}
+    </button>
+  );
+};
+
+export const ModifyButton = ({ onClick }) => {
+  return (
+    <button className={`customModify`} onClick={onClick}>
+      Modify
+    </button>
+  );
+};
