@@ -5,7 +5,7 @@ import SubHeader from '../Components/SubHeader';
 import '../Css/AdminUserLogin.css';
 // import SocietyInfo from './SocietyInfo.js';
 import ADLTable from '../Components/ADLTable.js';
-import ModifyButton from '../Components/ModifyButton';
+// import ModifyButton from '../Components/ModifyButton';
 import BillingDetails from './BillingDetails.js';
 
 const SocietyModify = () => {
@@ -33,22 +33,24 @@ const SocietyModify = () => {
       <CustomPaper>
         <HighLight KeyWord='Admin and User Login' />
         <div>Admin</div>
-        <div className='selectBtn' onClick={() => handleSubBody(1)}>
+        <div className='selectBtn'>
+        <div  onClick={() => handleSubBody(1)}>
           <SubHeader  barname={'Level 1'} openStatus={subBody[1]} />
         </div>
         {subBody[1] && <ADLTable/>}
-        <div className='selectBtn' onClick={() => handleSubBody(2)}>
+        <div onClick={() => handleSubBody(2)}>
           <SubHeader barname={'Level 2'} openStatus={subBody[2]}/>
         </div>
         {subBody[2] && <ADLTable />}
-        <div className='selectBtn' onClick={() => handleSubBody(3)}>
+        <div  onClick={() => handleSubBody(3)}>
           <SubHeader barname={'Level 3'} openStatus={subBody[3]} /> 
         </div>
         {subBody[3] && <ADLTable />}
-        <div className='selectBtn' onClick={() => handleSubBody(4)}>
+        <div  onClick={() => handleSubBody(4)}>
           <SubHeader barname={'Society Group'} openStatus={subBody[4]}/>
         </div>
         {subBody[4] && <ADLTable />}
+        </div>
       </CustomPaper>
     </InnerDisplay>
   );
