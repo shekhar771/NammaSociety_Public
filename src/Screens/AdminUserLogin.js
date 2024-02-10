@@ -32,7 +32,7 @@ const SocietyModify = () => {
       />
       <CustomPaper>
         <HighLight KeyWord='Admin and User Login' />
-        <div>Admin</div>
+        <div className='adminHeader'>Admin</div>
         <div className='selectBtn'>
         <div  onClick={() => handleSubBody(1)}>
           <SubHeader  barname={'Level 1'} openStatus={subBody[1]} />
