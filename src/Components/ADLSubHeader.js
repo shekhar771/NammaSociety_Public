@@ -18,4 +18,4 @@ const ADLSubHeader = ({barname , openStatus}) => {
   )
 }
 
-export default ADLSubHeader
+export default ADLSubHeader;
