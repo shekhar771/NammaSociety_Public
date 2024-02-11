@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { InnerDisplay, CustomPaper, HighLight } from '../Components/Wrapper';
 import BreadCrumb from '../Components/BreadCrumbs.js';
-import SubHeader from '../Components/SubHeader';
+import ADLSubHeader from '../Components/ADLSubHeader.js';
 import '../Css/AdminUserLogin.css';
 // import SocietyInfo from './SocietyInfo.js';
-import ADLTable from '../Components/ADLTable.js';
-// import ModifyButton from '../Components/ModifyButton';
+import {ADLTable} from '../Components/Table.js';
+import CustomButton from '../Components/CustomButton.js';
 import BillingDetails from './BillingDetails.js';
 
 const AdminUserLogin = () => {
@@ -35,19 +35,19 @@ const AdminUserLogin = () => {
         <div className='adminHeader'>Admin</div>
         <div className='selectBtn'>
         <div  onClick={() => handleSubBody(1)}>
-          <SubHeader  barname={'Level 1'} openStatus={subBody[1]} />
+          <ADLSubHeader barname={'Level 1'} openStatus={subBody[1]} />
         </div>
         {subBody[1] && <ADLTable/>}
         <div onClick={() => handleSubBody(2)}>
-          <SubHeader barname={'Level 2'} openStatus={subBody[2]}/>
+          <ADLSubHeader barname={'Level 2'} openStatus={subBody[2]}/>
         </div>
         {subBody[2] && <ADLTable />}
         <div  onClick={() => handleSubBody(3)}>
-          <SubHeader barname={'Level 3'} openStatus={subBody[3]} /> 
+          <ADLSubHeader barname={'Level 3'} openStatus={subBody[3]} /> 
         </div>
         {subBody[3] && <ADLTable />}
         <div onClick={() => handleSubBody(4)}>
-          <SubHeader barname={'Society Group'} openStatus={subBody[4]}/>
+          <ADLSubHeader barname={'Society Group'} openStatus={subBody[4]}/>
         </div>
         {subBody[4] && <ADLTable />}
         </div>
