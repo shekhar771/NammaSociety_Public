@@ -4,7 +4,7 @@ import BreadCrumb from '../Components/BreadCrumbs.js';
 import SubHeader from '../Components/SubHeader';
 import '../Css/AccountingGroup.css';
 // import SocietyInfo from './SocietyInfo.js';
-import AcGTable from '../Components/AcGTable.js';
+import {AcGTable} from '../Components/Table.js';
 // import ModifyButton from '../Components/ModifyButton';
 import BillingDetails from './BillingDetails.js';
 
