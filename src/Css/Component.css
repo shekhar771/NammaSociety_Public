@@ -348,9 +348,13 @@
 }
 .customModify {
   background-color: #39a930;
-  border-radius: 15px;
+  border-radius: 8px;
+  width: 70%;
+  height: 3vh;
+  font-weight: bold;
   color: #f9f9f9;
-  padding: 1vh 1vw;
+  /* padding: 0vh 1vw; */
+  border: none;
   transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Added box-shadow transition */
 }
 .customModify:hover {
