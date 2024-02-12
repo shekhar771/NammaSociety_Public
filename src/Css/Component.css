@@ -353,7 +353,10 @@
 }
 .customModify {
   background-color: #39a930;
-  border-radius: 15px;
+  border-radius: 8px;
+  width: 10vh;
+  height: 3vh;
+  font-weight: bold;
   color: #f9f9f9;
   padding: 0.5vh 1vw;
   transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Added box-shadow transition */

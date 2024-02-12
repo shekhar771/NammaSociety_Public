@@ -1,29 +1,59 @@
-// import React from 'react'
-// import { DemoPaper,  MainBody } from '../Components/Wrapper.js';
-// import Pager from '../Components/Wrapper.js';
-// import Stack from '@mui/material/Stack';
-// import Paper from '@mui/material/Paper';
-// import BreadCrumb from '../Components/BreadCrumbs.js';
-// import SearchBar from '../Components/SearchBar.js';
-// import DropdownTable from '../Components/DropdownTable.js';
-// import '../Css/UserInfo.css';
-// import {  HighLight, InnerDisplay, CustomPaper } from '../Components/Wrapper.js';
+import React, { useState } from 'react';
+import { InnerDisplay, CustomPaper, HighLight } from '../Components/Wrapper';
+import BreadCrumb from '../Components/BreadCrumbs.js';
+import ADLSubHeader from '../Components/ADLSubHeader.js';
+import '../Css/AdminUserLogin.css';
+// import SocietyInfo from './SocietyInfo.js';
+import {ADLTable} from '../Components/Table.js';
+import CustomButton from '../Components/CustomButton.js';
+import BillingDetails from './BillingDetails.js';
 
-// const AdminUserLogin = () => {
-//     return (
-//         <InnerDisplay>
-//             <BreadCrumb link1='Administrator' link2='Admin and User Login' />
-//             <CustomPaper>
-//                 <Stack direction='row' spacing={2}>
-//                     <CustomPaper elevation={3} variant='elevation'>
-//                     <HighLight KeyWord='Admin and User Login' />
-//                     <SearchBar placeholder='    Search User ID/ User Name' />
-//                     <DropdownTable/>
-//                     </CustomPaper>
-//                 </Stack>
-//             </CustomPaper>
-//         </InnerDisplay>
-//   );
-// };
+const AdminUserLogin = () => {
+  const [subBody, setSubBody] = useState(Array(2).fill(false));
 
-// export default AdminUserLogin;
+  const handleSubBody = (index) => {
+    setSubBody((prevSubBody) => {
+      const newSubBody = [...prevSubBody];
+      newSubBody[index] = !newSubBody[index];
+      return newSubBody;
+    });
+  };
+  const [SocForm,setSocForm] = useState('')
+  const getSocForm =(socInfo)=>{
+    setSocForm(socInfo)
+  }
+  return (
+    <InnerDisplay>
+      <BreadCrumb
+        link1='Administrator'
+        link2='Admin and User Login'
+        path1='/Home/'
+        path2='/Home/'
+      />
+      <CustomPaper>
+        <HighLight KeyWord='Admin and User Login' />
+        <div className='adminHeader'>Admin</div>
+        <div className='selectBtn'>
+        <div  onClick={() => handleSubBody(1)}>
+          <ADLSubHeader barname={'Level 1'} openStatus={subBody[1]} />
+        </div>
+        {subBody[1] && <ADLTable/>}
+        <div onClick={() => handleSubBody(2)}>
+          <ADLSubHeader barname={'Level 2'} openStatus={subBody[2]}/>
+        </div>
+        {subBody[2] && <ADLTable />}
+        <div  onClick={() => handleSubBody(3)}>
+          <ADLSubHeader barname={'Level 3'} openStatus={subBody[3]} /> 
+        </div>
+        {subBody[3] && <ADLTable />}
+        <div onClick={() => handleSubBody(4)}>
+          <ADLSubHeader barname={'Society Group'} openStatus={subBody[4]}/>
+        </div>
+        {subBody[4] && <ADLTable />}
+        </div>
+      </CustomPaper>
+    </InnerDisplay>
+  );
+};
+
+export default AdminUserLogin;

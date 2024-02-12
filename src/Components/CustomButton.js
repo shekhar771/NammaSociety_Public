@@ -27,7 +27,7 @@ export const CustomSelector = ({ buttonText, active, onClick }) => {
 export const ModifyButton = ({ onClick }) => {
   return (
     <button className={`customModify`} onClick={onClick}>
-      Modify
+      MODIFY
     </button>
   );
 };

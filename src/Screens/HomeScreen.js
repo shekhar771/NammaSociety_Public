@@ -32,6 +32,7 @@ import SocGL from './SocGL';
 import UserUnlock from './UserUnlock';
 import UserInfo from './UserInfo';
 import AdminUserLogin from './AdminUserLogin';
+import AccountingGroup from './AccountingGroup';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import SocietyInfo from './SocietyInfo';
 import SocietyModify from './SocietyModify';
@@ -325,8 +326,10 @@ const HomeScreen = () => {
 
       <div style={{ width: pgWidth, overflow: 'hidden' }} component='main'>
         <div id='name' className='DisplayBox'>
-          <Dashboard />
-          <Outlet />
+          {/* <Dashboard /> */}
+          {/* <Outlet /> */}
+          <AccountingGroup/>
+          {/* <AdminUserLogin/> */}
           {/* <YourData/> */}
           {/* {CompoVis[0] && <UserInfo/>}
           {CompoVis[1] && <UserUnlock/>}
