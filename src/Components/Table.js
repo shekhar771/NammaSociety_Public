@@ -58,7 +58,7 @@ const CustomizedTables = () => {
   };
 
   return (
-    <TableContainer className='TContainer'>
+    <TableContainer className='TContainer2'>
       <Table className='TContainer'>
         <TableHead>
           <TableRow>
@@ -146,15 +146,95 @@ export const CustomizedTables2 = () => {
       <Table className='TContainer'>
         <TableHead>
           <TableRow>
-            <TableCell className={Style.tableCell}>Code</TableCell>
-            <TableCell className={Style.tableCell}>Group</TableCell>
-            <TableCell className={Style.tableCell}>Ledger Name</TableCell>
-            <TableCell className={Style.tableCell}>Compul GST</TableCell>
-            <TableCell className={Style.tableCell}>Service Tax</TableCell>
-            <TableCell className={Style.tableCell}>
-              Interest Calculation
-            </TableCell>
-            <TableCell className={Style.tableCell}>Action</TableCell>
+            <TableCell className='tableCell'>Code</TableCell>
+            <TableCell className='tableCell'>Group</TableCell>
+            <TableCell className='tableCell'>Ledger Name</TableCell>
+            <TableCell className='tableCell'>Compul GST</TableCell>
+            <TableCell className='tableCell'>Service Tax</TableCell>
+            <TableCell className='tableCell'>Interest Calculation</TableCell>
+            <TableCell className='tableCell'>Action</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {(rowsPerPage > 0
+            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : rows
+          ).map((row, index) => (
+            <TableRow
+              key={row.id}
+              style={{ backgroundColor: index % 2 === 0 ? '#f2f2f2' : 'white' }}
+            >
+              <TableCell>{row.id}</TableCell>
+              <TableCell>{row.Name}</TableCell>
+              <TableCell>{row.Name}</TableCell>
+              <TableCell>{row.Name}</TableCell>
+
+              <TableCell>{row.Name}</TableCell>
+
+              <TableCell>{row.Name}</TableCell>
+
+              <TableCell>
+                <ModifyButton onClick={() => handleModifyClick(row)} />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <TablePagination
+        // className={Style.page}
+        rowsPerPageOptions={[5, 10, 25]}
+        component='div'
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </TableContainer>
+  );
+};
+export const CustomizedTables3 = () => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rows, setRows] = useState(initialRows);
+
+  // Change icon code
+  const handleIconClick = (id) => {
+    setRows((prevRows) =>
+      prevRows.map((item) =>
+        item.id === id ? { ...item, Locked: !item.Locked } : item
+      )
+    );
+  };
+
+  // This is used for pagination feature
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+  //for editing
+  const navigate = useNavigate();
+
+  const handleModifyClick = (rowData) => {
+    // Navigate to another page and pass the row data as a parameter
+    navigate('/Home/ModifyBilling', { rowData });
+  };
+  return (
+    <TableContainer className='TContainer4'>
+      <Table className='TContainer5'>
+        <TableHead>
+          <TableRow>
+            <TableCell className='tableCell'>Code</TableCell>
+            <TableCell className='tableCell'>Group</TableCell>
+            <TableCell className='tableCell'>Ledger Name</TableCell>
+            <TableCell className='tableCell'>Compul GST</TableCell>
+            <TableCell className='tableCell'>Service Tax</TableCell>
+            <TableCell className='tableCell'>Interest Calculation</TableCell>
+            <TableCell className='tableCell'>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
