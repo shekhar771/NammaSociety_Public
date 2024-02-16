@@ -32,7 +32,6 @@ import SocGL from './SocGL';
 import UserUnlock from './UserUnlock';
 import UserInfo from './UserInfo';
 import AdminUserLogin from './AdminUserLogin';
-import AccountingGroup from './AccountingGroup';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import SocietyInfo from './SocietyInfo';
 import SocietyModify from './SocietyModify';
@@ -51,7 +50,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { getDatabase, onValue, ref } from 'firebase/database';
+// import { getDatabase, onValue, ref } from 'firebase/database';
 import { useEffect } from 'react';
 import SocietyCreation from './SocietyCreation1';
 import {
@@ -110,14 +109,14 @@ const HomeScreen = () => {
   //==============get user data ==================//
 
   const [UserObj, setUserObj] = React.useState([]);
-  const db = getDatabase();
-  const ann = ref(db, 'Users/' + user.uid);
-  useEffect(() => {
-    onValue(ann, (snapshot) => {
-      const data = snapshot.val();
-      setUserObj(data);
-    });
-  }, []);
+  // const db = getDatabase();
+  // // const ann = ref(db, 'Users/' + user.uid);
+  // useEffect(() => {
+  //   // onValue(ann, (snapshot) => {
+  //     const data = snapshot.val();
+  //     setUserObj(data);
+  //   });
+  // }, []);
 
   //=========Manage drawer and viewBox width==========//
   const theme = useTheme();
@@ -326,10 +325,8 @@ const HomeScreen = () => {
 
       <div style={{ width: pgWidth, overflow: 'hidden' }} component='main'>
         <div id='name' className='DisplayBox'>
-          {/* <Dashboard /> */}
-          {/* <Outlet /> */}
-          <AccountingGroup/>
-          {/* <AdminUserLogin/> */}
+          <Dashboard />
+          <Outlet />
           {/* <YourData/> */}
           {/* {CompoVis[0] && <UserInfo/>}
           {CompoVis[1] && <UserUnlock/>}

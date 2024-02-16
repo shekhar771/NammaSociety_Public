@@ -2,67 +2,72 @@ import React, { useEffect, useState } from 'react';
 import { CustomPaper, HighLight, InnerDisplay } from '../Components/Wrapper';
 import BreadCrumb from '../Components/BreadCrumbs';
 import SocietyInfo from './SocietyInfo';
-import { getDatabase, ref, set, push } from 'firebase/database';
-import { database } from '../Firebase/firebaseConfig';
+import { db } from '../Firebase/firebaseConfig.js';
 import AlertDialog from '../Components/DialogueBox';
 import '../Css/Component.css';
 import CustomButton from '../Components/CustomButton';
+import { getFirestore } from 'firebase/firestore';
+import { doc,collection,query, getDocs,setDoc ,addDoc} from "firebase/firestore"; 
 
 const showTxt1 = 'Submit form ?';
-const showTxt2 = 'You are about to submit the form porceed ?';
+const showTxt2 = 'You are about to submit the form proceed ?';
+
 const CreateSociety = () => {
-  const db = getDatabase();
-  const socKey = push(ref(db, 'societies')).key;
-  const socInfoRef = ref(db, 'societies/' + socKey);
-  const socNameRef = ref(db, 'societyNames/' + socKey);
-  // const socInfoRef = push(ref(db,'societies'))
-  // const socNameRef = ref(db,'societyNames/'+socInfoRef.key)
   const [SocForm, setSocForm] = useState('');
   const fieldStatus = Array(16).fill(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   const getSocForm = (socInfo) => {
     setSocForm(socInfo);
   };
-  const SocietyCreate = () => {
-    set(socInfoRef, {
-      CompanyName: SocForm.CompanyName,
-      SocietyName: SocForm.SocietyName,
-      Address: SocForm.Address,
-      StampNo: SocForm.StampNo,
-      SocietyMobileNo: SocForm.SocietyMobileNo,
-      RegistrationNo: SocForm.RegistrationNo,
-      BillingSignatory: SocForm.BillingSignatory,
-      FromEmailID: SocForm.FromEmailID,
-      FromPassword: SocForm.FromPassword,
-      PAN: SocForm.PAN,
-      TAN: SocForm.TAN,
-      GST: SocForm.GST,
-      GSTRate: SocForm.GSTRate,
-      GSTAmount: SocForm.GSTAmount,
-      BillingType: SocForm.BillingType,
-      CostCenter: SocForm.CostCenter,
-    });
-    set(socNameRef, {
-      Name: SocForm.SocietyName,
-    });
-    setDialogOpen(false);
+  
+  // Initialize Firestore instance
+// const db = getFirestore();
+  const SocietyCreate = async () => {
+    try {
+      
+      
+    const docRef = await addDoc(collection(db, "societies"), SocForm);
+   
+    const socId = docRef.id;
+
+    // Create a document in the 'societyNames' collection with the society ID
+    await setDoc(doc(db, "societyNames", socId), { Name: SocForm.SocietyName });
+
+      setDialogOpen(false);
+    } catch (error) {
+      console.error('Error creating society:', error);
+    }
   };
 
-  // const validate =()=>{
-  //   for (const fieldName in SocForm ){
-  //     if (SocForm[fieldName].trim()==''){
-  //       const index = Object.keys(SocForm).indexOf(fieldName);
-  //       fieldStatus[index] = true
-  //     }
-  //   }
-  //   console.log(fieldStatus)
-  // }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+ ;
+    const querySnapshot = await getDocs(collection(db, "societies"));
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, ' => ', doc.data());
+    });
+  } catch (error) {
+    console.error('Error fetching data: ', error);
+  }
+};
 
-  const [dialogOpen, setDialogOpen] = useState(false);
+fetchData();
+  }, []);
+
+//ake sure to include db in the dependency array to avoid useEffect dependencies warning
+
   const handleClickOpen = () => {
     setDialogOpen(true);
   };
+
   const handleClose = () => {
     setDialogOpen(false);
+  };
+
+  const validate = () => {
+    // Implement field validation logic here
   };
 
   return (
@@ -70,12 +75,12 @@ const CreateSociety = () => {
       <BreadCrumb
         link1='Society'
         link2='Create Society'
-        path1='/Home/'
-        path2='/Home/UserUnlock'
+        path1='/Home/Society'
+        path2='/Home/Society/CreateSociety'
       />
       <CustomPaper>
         <HighLight KeyWord='Create Society' />
-        <SocietyInfo handleNewSoc={getSocForm} errorStatus={fieldStatus} />
+        <SocietyInfo handleNewSoc={getSocForm} />
       </CustomPaper>
       <div
         style={{
@@ -83,10 +88,10 @@ const CreateSociety = () => {
           width: '100%',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'center'
         }}
       >
-        <CustomButton buttonText='Create Society' onClick={handleClickOpen} />
+        <CustomButton buttonText='Create' onClick={handleClickOpen} />
       </div>
       <AlertDialog
         showTxt1={showTxt1}
@@ -100,4 +105,5 @@ const CreateSociety = () => {
     </InnerDisplay>
   );
 };
+
 export default CreateSociety;

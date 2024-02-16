@@ -27,33 +27,45 @@ import {
   CustomTextField3,
 } from '../Components/InputSelectSoc.js';
 import '../Css/SocietyInfo.css';
-import { getDatabase, ref, onValue } from 'firebase/database';
+
 //sadkdjawdfnsadfsejm,
 //diaogueimports======
 import AlertDialog from '../Components/DialogueBox.js';
 import { DialerSip } from '@mui/icons-material';
 import { CustomizedTables3 } from '../Components/Table.js';
+import { getFirestore } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../Firebase/firebaseConfig.js';
 
 const showTxt = 'Are you sure you wanna Submit this form';
 
 const SocietyCreation = () => {
   const navigate = useNavigate();
-  const db = getDatabase();
-  const [DbSoc, setDbSoc] = useState('');
+  const [DbSoc, setDbSoc] = useState(''); 
+  const [societies, setSocieties] = useState([]);
 
-  const Soc_List = ref(db, 'Society/');
   useEffect(() => {
-    onValue(Soc_List, (snapshot) => {
-      const data = snapshot.val();
-      setDbSoc(data);
-    });
+    const fetchSocieties = async () => {
+      try {
+        // const querySnapshot = await getDocs(collection(firestore, 'societies')); // Fetch 'Society' collection
+        // const societiesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        // setSocieties(societiesData);
+
+        const querySnapshot = await getDocs(collection(db, 'societies')); // Fetch 'Society' collection
+        const societiesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setSocieties(societiesData);
+      } catch (error) {
+        console.error('Error fetching societies:', error);
+      }
+    };
+
+    fetchSocieties();
   }, []);
 
-  const handleButtonClick = () => {
-    // Redirect to another page
-    //add society option here
-    navigate('/Home/SocietyCreate');
-  };
+const handleButtonClick = () => {
+  navigate('/Home/SocietyCreate');
+};
+ 
 
   return (
     <InnerDisplay>
@@ -70,6 +82,7 @@ const SocietyCreation = () => {
           <Grid item xs={2} className='TxtGrid'>
             <text className='SocInfoTxt'>Societies:</text>
           </Grid>
+
           <Grid item xs={10}>
             <CustomSearchAuto />
           </Grid>

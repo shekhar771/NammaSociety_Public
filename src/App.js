@@ -46,7 +46,7 @@ function App() {
             <Route path='/LogIn' element={<LogIn />} />
             <Route path='/ForgotPassword' element={<ForgotPassword />} />
             <Route path='/Home' element={<HomeScreen />}>
-              <Route path='/Home/YourData' element={<YourData />} />
+              <Route path='/Home/' element={<YourData />} />
               <Route path='/Home/UserUnlock' element={<UserUnlock />} />
               <Route path='/Home/UserInfo' element={<UserInfo />} />
               <Route path='/Home/SocietyCreate' element={<CreateSociety />} />
@@ -60,7 +60,6 @@ function App() {
               <Route path='/Home/BillingHeads' element={<BillingHeads />} />
               <Route path='/Home/ModifyBilling' element={<ModifyBilling />} />
             </Route>
-
             <Route path='/MainScreen' element={<MainScreen />} />
           </Routes>
         </div>
