@@ -14,10 +14,7 @@ const AccountingGroup = () => {
       return newSubBody;
     });
   };
-  const [SocForm,setSocForm] = useState('')
-  const getSocForm =(socInfo)=>{
-    setSocForm(socInfo)
-  }
+  
   return (
     <InnerDisplay>
       <BreadCrumb
