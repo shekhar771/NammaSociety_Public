@@ -31,8 +31,6 @@ import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import SocGL from './SocGL';
 import UserUnlock from './UserUnlock';
 import UserInfo from './UserInfo';
-import AdminUserLogin from './AdminUserLogin';
-import AccountingGroup from './AccountingGroup';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import SocietyInfo from './SocietyInfo';
 import SocietyModify from './SocietyModify';
@@ -328,8 +326,7 @@ const HomeScreen = () => {
         <div id='name' className='DisplayBox'>
           {/* <Dashboard /> */}
           {/* <Outlet /> */}
-          <AccountingGroup/>
-          {/* <AdminUserLogin/> */}
+          
           {/* <YourData/> */}
           {/* {CompoVis[0] && <UserInfo/>}
           {CompoVis[1] && <UserUnlock/>}
