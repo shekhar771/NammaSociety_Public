@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { InnerDisplay, CustomPaper, HighLight } from '../Components/Wrapper';
 import BreadCrumb from '../Components/BreadCrumbs.js';
-import SubHeader from '../Components/SubHeader';
-import '../Css/AccountingGroup.css';
-// import SocietyInfo from './SocietyInfo.js';
-import {AcGTable} from '../Components/Table.js';
-// import ModifyButton from '../Components/ModifyButton';
-import BillingDetails from './BillingDetails.js';
-
-const AccountingGroup = () => {
+import ADLSubHeader from '../Components/ADLSubHeader';
+import '../Css/SocGL.css';
+import {AcGTable} from '../Components/Table.js'
+const SocietyModify = () => {
   const [subBody, setSubBody] = useState(Array(2).fill(false));
 
   const handleSubBody = (index) => {
@@ -26,33 +22,32 @@ const AccountingGroup = () => {
     <InnerDisplay>
       <BreadCrumb
         link1='Administrator'
-        link2='Accounting Groups'
+        link2='Accounting Group'
         path1='/Home/'
         path2='/Home/'
       />
       <CustomPaper>
-        <HighLight KeyWord='Accounting Groups' />
-        <div className='selectBtn'>
-        <div onClick={() => handleSubBody(1)}>
-          <SubHeader  barname={'Assets'} openStatus={subBody[1]} />
+        <HighLight KeyWord='Accounting Group' />
+        <div className='selectBtn' onClick={() => handleSubBody(1)}>
+          <ADLSubHeader barname={'Assets'} openStatus={subBody[1]} />
         </div>
         {subBody[1] && <AcGTable/>}
-        <div onClick={() => handleSubBody(2)}>
-          <SubHeader barname={'Liability'} openStatus={subBody[2]}/>
+        <div className='selectBtn' onClick={() => handleSubBody(2)}>
+          <ADLSubHeader barname={'Liability'} openStatus={subBody[2]}/>
         </div>
         {subBody[2] && <AcGTable />}
-        <div onClick={() => handleSubBody(3)}>
-          <SubHeader barname={'Income'} openStatus={subBody[3]} /> 
+        <div className='selectBtn' onClick={() => handleSubBody(3)}>
+          <ADLSubHeader barname={'Income'} openStatus={subBody[3]} />
         </div>
-        {subBody[3] && <AcGTable />}
-        <div onClick={() => handleSubBody(4)}>
-          <SubHeader barname={'Expenditure'} openStatus={subBody[4]}/>
+        {subBody[3] && <AcGTable/>}
+        <div className='selectBtn' onClick={() => handleSubBody(4)}>
+          <ADLSubHeader barname={'Expenditure'} openStatus={subBody[4]}/>
         </div>
         {subBody[4] && <AcGTable />}
-        </div>
       </CustomPaper>
     </InnerDisplay>
   );
 };
 
-export default AccountingGroup;
+export default SocietyModify;
+
