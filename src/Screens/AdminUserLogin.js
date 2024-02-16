@@ -3,7 +3,6 @@ import { InnerDisplay, CustomPaper, HighLight } from '../Components/Wrapper';
 import BreadCrumb from '../Components/BreadCrumbs.js';
 import ADLSubHeader from '../Components/ADLSubHeader.js';
 import '../Css/AdminUserLogin.css';
-// import SocietyInfo from './SocietyInfo.js';
 import {ADLTable} from '../Components/Table.js';
 import CustomButton from '../Components/CustomButton.js';
 import BillingDetails from './BillingDetails.js';
