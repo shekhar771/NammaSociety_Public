@@ -33,7 +33,7 @@ const AccountingGroup = () => {
       <CustomPaper>
         <HighLight KeyWord='Accounting Groups' />
         <div className='selectBtn'>
-        <div  onClick={() => handleSubBody(1)}>
+        <div onClick={() => handleSubBody(1)}>
           <SubHeader  barname={'Assets'} openStatus={subBody[1]} />
         </div>
         {subBody[1] && <AcGTable/>}
@@ -41,7 +41,7 @@ const AccountingGroup = () => {
           <SubHeader barname={'Liability'} openStatus={subBody[2]}/>
         </div>
         {subBody[2] && <AcGTable />}
-        <div  onClick={() => handleSubBody(3)}>
+        <div onClick={() => handleSubBody(3)}>
           <SubHeader barname={'Income'} openStatus={subBody[3]} /> 
         </div>
         {subBody[3] && <AcGTable />}
