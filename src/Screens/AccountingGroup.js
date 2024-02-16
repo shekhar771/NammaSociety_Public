@@ -4,7 +4,7 @@ import BreadCrumb from '../Components/BreadCrumbs.js';
 import SubHeader from '../Components/SubHeader';
 import '../Css/SocGL.css';
 import {AcGTable} from '../Components/Table.js'
-const SocietyModify = () => {
+const AccountingGroup = () => {
   const [subBody, setSubBody] = useState(Array(2).fill(false));
 
   const handleSubBody = (index) => {
@@ -49,5 +49,5 @@ const SocietyModify = () => {
   );
 };
 
-export default SocietyModify;
+export default AccountingGroup;
 
