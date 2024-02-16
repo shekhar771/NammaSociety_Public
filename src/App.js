@@ -6,6 +6,9 @@ import Splash from './Screens/SplashScr';
 import ForgotPassword from './Screens/ForgotPswd';
 import HomeScreen from './Screens/HomeScreen';
 import MainScreen from './Screens/MainScreen';
+import AdminUserLogin from './Screens/AdminUserLogin';
+import AccountingGroup from './Screens/AccountingGroup';
+
 
 import YourData from './Screens/YourData';
 import CreateSociety from './Screens/CreateSociety';
@@ -18,6 +21,7 @@ import EditSociety from './Screens/EditSociety';
 import ModifyBilling from './Components/ModifyBilling';
 import CreateUser from './Screens/CreateUser';
 import BillingHeads from './Screens/BillingHeads';
+
 
 function App() {
   return (
@@ -49,6 +53,9 @@ function App() {
               <Route path='/Home/YourData' element={<YourData />} />
               <Route path='/Home/UserUnlock' element={<UserUnlock />} />
               <Route path='/Home/UserInfo' element={<UserInfo />} />
+              <Route path='/Home/AdminUserLogin' element={<AdminUserLogin />} />
+              <Route path='/Home/AccountingGroup' element={<AccountingGroup />} />
+
               <Route path='/Home/SocietyCreate' element={<CreateSociety />} />
               <Route path='/Home/Society' element={<SocietyCreation />} />
               <Route path='/Home/EditSociety' element={<EditSociety />} />
