@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { InnerDisplay, CustomPaper, HighLight } from '../Components/Wrapper';
 import BreadCrumb from '../Components/BreadCrumbs.js';
-import ADLSubHeader from '../Components/ADLSubHeader';
+import SubHeader from '../Components/SubHeader';
 import '../Css/SocGL.css';
 import {AcGTable} from '../Components/Table.js'
 const SocietyModify = () => {
@@ -29,19 +29,19 @@ const SocietyModify = () => {
       <CustomPaper>
         <HighLight KeyWord='Accounting Group' />
         <div className='selectBtn' onClick={() => handleSubBody(1)}>
-          <ADLSubHeader barname={'Assets'} openStatus={subBody[1]} />
+          <SubHeader barname={'Assets'} openStatus={subBody[1]} />
         </div>
         {subBody[1] && <AcGTable/>}
         <div className='selectBtn' onClick={() => handleSubBody(2)}>
-          <ADLSubHeader barname={'Liability'} openStatus={subBody[2]}/>
+          <SubHeader barname={'Liability'} openStatus={subBody[2]}/>
         </div>
         {subBody[2] && <AcGTable />}
         <div className='selectBtn' onClick={() => handleSubBody(3)}>
-          <ADLSubHeader barname={'Income'} openStatus={subBody[3]} />
+          <SubHeader barname={'Income'} openStatus={subBody[3]} />
         </div>
         {subBody[3] && <AcGTable/>}
         <div className='selectBtn' onClick={() => handleSubBody(4)}>
-          <ADLSubHeader barname={'Expenditure'} openStatus={subBody[4]}/>
+          <SubHeader barname={'Expenditure'} openStatus={subBody[4]}/>
         </div>
         {subBody[4] && <AcGTable />}
       </CustomPaper>
