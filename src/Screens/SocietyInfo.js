@@ -10,9 +10,7 @@ import TextField from '@mui/material/TextField';
 import '../Css/SocietyInfo.css';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-// import { getDatabase, onValue, ref } from 'firebase/database';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../Firebase/firebaseConfig.js';
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 const SocietyInfo = ({ handleNewSoc, errorStatus, uniqId }) => {
   const [formData, setFormData] = useState({
@@ -34,40 +32,51 @@ const SocietyInfo = ({ handleNewSoc, errorStatus, uniqId }) => {
     CostCenter: '',
   });
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
+    console.log(errorStatus);
   };
 
+  const updatedFormData = { ...formData };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const docRef = doc(db, 'societies', uniqId);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          setFormData(data);
-        } else {
-          console.log('No such document!');
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
     if (uniqId) {
-      fetchData();
+      const db = getDatabase();
+      const Soc_info = ref(db, 'societies/' + uniqId);
+      onValue(Soc_info, (snapshot) => {
+        const data = snapshot.val();
+        for (const key in data) {
+          // formData[key] = data[key]
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            [key]: data[key],
+          }));
+        }
+      });
+      console.log('got data');
+    } else {
+      console.log('no data');
     }
-  }, [uniqId]);
+  }, []);
+
+  // const validateFields = () =>{
+  //   for(const fieldName in FormData){
+  //     if(formData[fieldName].trim()===''){
+
+  //     }
+  //   }
+
+  // }
+
+  // const handleOldSoc
 
   useEffect(() => {
     handleNewSoc(formData);
-  }, [formData, handleNewSoc]);
-
+    console.log(uniqId);
+  }, [formData]);
 
   return (
     <SubBodyDisplay>

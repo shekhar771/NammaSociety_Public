@@ -5,11 +5,8 @@ import { InnerDisplay, HighLight, CustomPaper } from './Wrapper.js';
 import '../Css/Component.css';
 import CustomInput from './Input.js';
 import CustomButton from './CustomButton.js';
-import CustomSelect from './InputSelect.js';
 const ModifyBilling = ({ rowData }) => {
   const [isSetupComplete, setIsSetupComplete] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
-
   const [formData, setFormData] = useState({
     userId: '',
     userName: '',
@@ -17,16 +14,6 @@ const ModifyBilling = ({ rowData }) => {
     userType: '',
     userAccessLevel: '',
   });
-  const options = [
-    'REPAIR FUNDS',
-    'Control Account',
-    'DEVELOPEMENT FUNDS',
-    'PAINTING FUNDS',
-  ];
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
-    handleInputChange('userType', event);
-  };
   const handleSubmit = async () => {};
   //This is for Custom Button To input
   const handleInputChange = (fieldName, event) => {
@@ -40,62 +27,54 @@ const ModifyBilling = ({ rowData }) => {
   return (
     <InnerDisplay>
       <BreadCrumb
-        link1='Billing Heads'
+        link1='Administrator'
         link2='Modify billing'
-        path1='/Home/BillingHeads'
+        path1='/Home/'
         path2='/Home/ModifyBilling'
       />
       <CustomPaper>
         <HighLight KeyWord='Modify Billing ' />
-        <div className='TContainer3'>
+        <div className='TContainer2'>
           <CustomInput
-            label='GL Code:'
-            placeholder='5001'
+            label='User ID:'
+            placeholder='Saroja_9827'
             onChange={(event) => handleInputChange('userId', event)}
           />
           <div></div>
           <CustomInput
-            label='Ledger:'
-            placeholder='SINKING FUNDS'
+            label='User Name:'
+            placeholder='Saroja'
             onChange={(value) => handleInputChange('userName', value)}
           />
           <div></div>
           <CustomInput
-            label='Short Name:'
-            placeholder='SINK#FUND'
-            onChange={(event) => handleInputChange('userId', event)}
-          />
-          <div></div>
-          <CustomSelect
-            options={options}
-            onChange={handleChange}
-            value={selectedOption}
-            label='Group:'
-            placeholder='RECEIVED FROM MEMBERS'
-          />
-          <div></div>
-          <CustomInput
-            label='Interest Calculation:'
-            placeholder='No'
+            label='User ID:'
+            placeholder='Saroja_9827'
             onChange={(event) => handleInputChange('userId', event)}
           />
           <div></div>
           <CustomInput
-            label='GST:'
-            placeholder='No'
+            label='User Name:'
+            placeholder='Saroja'
             onChange={(value) => handleInputChange('userName', value)}
+          />
+          <div></div>{' '}
+          <CustomInput
+            label='User ID:'
+            placeholder='Saroja_9827'
+            onChange={(event) => handleInputChange('userId', event)}
           />
           <div></div>
           <CustomInput
-            label='Compulsory GST:'
-            placeholder='No'
+            label='User Name:'
+            placeholder='Saroja'
             onChange={(value) => handleInputChange('userName', value)}
           />
-          <div></div>
-        </div>
+          <div></div>{' '}
+        </div>{' '}
         <div className='buttonses'>
-          <CustomButton buttonText='Save' onClick={handleSubmit} />
-          <CustomButton buttonText='Cancel' onClick={handleSubmit} />
+          <CustomButton buttonText='Add User' onClick={handleSubmit} />
+          <CustomButton buttonText='Add User' onClick={handleSubmit} />
         </div>
       </CustomPaper>
     </InnerDisplay>

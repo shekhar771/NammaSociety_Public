@@ -1,32 +1,50 @@
-// import * as React from 'react';
+import React, { useState } from 'react';
+import { InnerDisplay, CustomPaper, HighLight } from '../Components/Wrapper';
+import BreadCrumb from '../Components/BreadCrumbs.js';
+import SubHeader from '../Components/SubHeader';
+import '../Css/SocGL.css';
+import {AcGTable} from '../Components/Table.js'
+const AccountingGroup = () => {
+  const [subBody, setSubBody] = useState(Array(2).fill(false));
 
-// import SearchBar from '../Components/SearchBar.js';
-// import {  CustomPaper, HighLight, InnerDisplay  } from '../Components/Wrapper.js';
-// import Pager from '../Components/Wrapper.js';
-// import { styled } from '@mui/material/styles';
-// import Stack from '@mui/material/Stack';
-// // import Paper from '@mui/material/Paper';
-// import BreadCrumb from '../Components/BreadCrumbs.js';
-// import '../Css/accounting_groups.css'
-// const AccountingGroup = () => {
-//   return (
-//     <InnerDisplay>
-//       <BreadCrumb
-//         link1='Administrator'
-//         link2='Accounting Groups'
-//         path1='/Home/'
-//         path2='/Home/AccountingGroup'
-//       />
-//       <CustomPaper>
-//         <Stack direction='row' spacing={2}>
-//           <CustomPaper elevation={3} variant='elevation'>
-//             <HighLight KeyWord='Accounting Groups' />
-//             <SearchBar placeholder='    Search User ID/ User Name' />
-//           </CustomPaper>
-//         </Stack>
-//       </CustomPaper>
-//     </InnerDisplay>
-//   );
-// };
+  const handleSubBody = (index) => {
+    setSubBody((prevSubBody) => {
+      const newSubBody = [...prevSubBody];
+      newSubBody[index] = !newSubBody[index];
+      return newSubBody;
+    });
+  };
+  
+  return (
+    <InnerDisplay>
+      <BreadCrumb
+        link1='Administrator'
+        link2='Accounting Group'
+        path1='/Home/'
+        path2='/Home/'
+      />
+      <CustomPaper>
+        <HighLight KeyWord='Accounting Group' />
+        <div className='selectBtn' onClick={() => handleSubBody(1)}>
+          <SubHeader barname={'Assets'} openStatus={subBody[1]} />
+        </div>
+        {subBody[1] && <AcGTable/>}
+        <div className='selectBtn' onClick={() => handleSubBody(2)}>
+          <SubHeader barname={'Liability'} openStatus={subBody[2]}/>
+        </div>
+        {subBody[2] && <AcGTable />}
+        <div className='selectBtn' onClick={() => handleSubBody(3)}>
+          <SubHeader barname={'Income'} openStatus={subBody[3]} />
+        </div>
+        {subBody[3] && <AcGTable/>}
+        <div className='selectBtn' onClick={() => handleSubBody(4)}>
+          <SubHeader barname={'Expenditure'} openStatus={subBody[4]}/>
+        </div>
+        {subBody[4] && <AcGTable />}
+      </CustomPaper>
+    </InnerDisplay>
+  );
+};
 
-// export default AccountingGroup;
+export default AccountingGroup;
+

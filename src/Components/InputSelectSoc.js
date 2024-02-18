@@ -1,9 +1,8 @@
 import { Autocomplete, TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 import '../Css/Component.css';
-import { getFirestore, query,where,collection, onSnapshot, getDocs } from 'firebase/firestore'; // Firestore functions
+import { getDatabase, onValue, ref } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import { db } from '../Firebase/firebaseConfig';
 
 //autocomplete
 export const CustomSearchAuto = ({ label, placeholder, onChange }) => {
@@ -15,42 +14,37 @@ export const CustomSearchAuto = ({ label, placeholder, onChange }) => {
   const [value, setValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchKeys, setSearchKeys] = useState([]);
-  // const db = getFirestore();
-  const Societies = collection(db, 'societyNames');
-  useEffect(() => {
-    const fetchSocieties = async () => {
-      if (value.length > 0) {
-        const querySnapshot = await getDocs(collection(db, 'societyNames'));
-        const societiesData = [];
-        querySnapshot.forEach((doc) => {
-          const societyName = doc.data().Name.toLowerCase();
-          if (societyName.includes(value.toLowerCase())) {
-            societiesData.push({ id: doc.id, name: societyName });
-          }
-        });
-        setSearchResults(societiesData.map(s => s.name));
-        setSearchKeys(societiesData.map(s => s.id));
-      } else {
-        setSearchResults([]);
-        setSearchKeys([]);
-      }
-    };
-  
-    fetchSocieties();
-  }, [value]);
 
-  const getSocieties = (response) => {
+  useEffect(()=>{
+    const db = getDatabase();
+    const Societies = ref(db, 'societyNames/')
+    if (value.length > 0 ){
+      onValue(Societies, (snapshot)=>{
+        getSocieties(snapshot.val())
+      });
+    }else{
+      setSearchResults([]);
+      setSearchKeys([])
+    }
+  },[value])
+
+
+  const getSocieties = (response)=>{
     setSearchResults([]);
     setSearchKeys([]);
-    let searchQuery = value.toLowerCase();
-    for (const key in response) {
+    let searchQuery = value.toLowerCase()
+    for(const key in response){
       let result = response[key].Name.toLowerCase();
       if (result.slice(0, searchQuery.length).indexOf(searchQuery) !== -1) {
-        setSearchResults((prevResults) => [...prevResults, result]);
-        setSearchKeys((prevResults) => [...prevResults, key]);
+        setSearchResults((prevResults) => {
+          return [...prevResults,result];
+        });
+        setSearchKeys((prevResults) => {
+          return [...prevResults,key];
+        })
       }
     }
-  };
+  }
 
 
   return (

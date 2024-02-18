@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-// import { getDatabase, ref, get, child } from 'firebase/database';
+import { getDatabase, ref, get, child } from 'firebase/database';
 // import SplashScreen from "../assets/SplashScreen.jpg";
 
 const Splash = () => {
@@ -14,31 +14,31 @@ const navToHome = (details) => {
   navigate("/Home/YourData", { state: details });
 };
 
-  // React.useEffect(() => {
-  //   if (!isCalledRef.current) {
-  //     onAuthStateChanged(auth, (user) => {
-  //       if (user) {
-  //         const dbRef = ref(getDatabase());
-  //         get(child(dbRef, `Users/${user.uid}`))
-  //           .then((snapshot) => {
-  //             if (snapshot.exists()) {
-  //               const details = JSON.stringify(snapshot.val());
-  //               navToHome(details);
-  //             } else {
-  //               console.log('No data available');
-  //             }
-  //           })
-  //           .catch((error) => {
-  //             console.log("err")
-  //             console.log(error);
-  //           });
-  //       } else {
-  //         // console.log("no current user");
-  //         navigate("/LogIn");
-  //       }
-  //     });
-  //   }
-  // });
+  React.useEffect(() => {
+    if (!isCalledRef.current) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const dbRef = ref(getDatabase());
+          get(child(dbRef, `Users/${user.uid}`))
+            .then((snapshot) => {
+              if (snapshot.exists()) {
+                const details = JSON.stringify(snapshot.val());
+                navToHome(details);
+              } else {
+                console.log('No data available');
+              }
+            })
+            .catch((error) => {
+              console.log("err")
+              console.log(error);
+            });
+        } else {
+          // console.log("no current user");
+          navigate("/LogIn");
+        }
+      });
+    }
+  });
 
   return (
     <div

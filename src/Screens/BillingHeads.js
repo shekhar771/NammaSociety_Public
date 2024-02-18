@@ -62,33 +62,27 @@ const BillingHeads = () => {
           placeholder='    Search User ID/ User Name'
           onSearch={handleSearch}
         />
-
         <div className='CustomSelector'>
-          <CustomSelector
-            buttonText='All'
-            onClick={() => handleButtonClick(1)}
-            active={activeButton === 1} // Apply active class if activeButton is 4
-          />
           {/* Buttons to select tables */}
           <CustomSelector
             buttonText='Assets'
-            onClick={() => handleButtonClick(2)}
-            active={activeButton === 2} // Apply active class if activeButton is 1
+            onClick={() => handleButtonClick(1)}
+            active={activeButton === 1} // Apply active class if activeButton is 1
           />
           <CustomSelector
             buttonText='Liability'
-            onClick={() => handleButtonClick(3)}
-            active={activeButton === 3} // Apply active class if activeButton is 2
+            onClick={() => handleButtonClick(2)}
+            active={activeButton === 2} // Apply active class if activeButton is 2
           />
           <CustomSelector
             buttonText='Income'
-            onClick={() => handleButtonClick(4)}
-            active={activeButton === 4} // Apply active class if activeButton is 3
+            onClick={() => handleButtonClick(3)}
+            active={activeButton === 3} // Apply active class if activeButton is 3
           />
           <CustomSelector
             buttonText='Expenditure'
-            onClick={() => handleButtonClick(5)}
-            active={activeButton === 5} // Apply active class if activeButton is 4
+            onClick={() => handleButtonClick(4)}
+            active={activeButton === 4} // Apply active class if activeButton is 4
           />
         </div>
         {/* Render selected table based on button click */}
@@ -96,7 +90,6 @@ const BillingHeads = () => {
         {selectedTable === 2 && <CustomizedTables2 />}
         {selectedTable === 3 && <CustomizedTables2 />}
         {selectedTable === 4 && <CustomizedTables2 />}
-        {selectedTable === 5 && <CustomizedTables2 />}
         <div className='buttonses'>
           <CustomButton buttonText='Add New' onClick={handleSubmit} />
         </div>

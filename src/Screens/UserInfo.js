@@ -10,6 +10,8 @@ import '../Css/Component.css';
 // Import your Firebase Firestore or Realtime Database instance
 
 //----------firebase imports------
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, update, push, set, child } from 'firebase/database';
 
 import {
   //   createUserWithEmailAndPassword, -->to be added later
