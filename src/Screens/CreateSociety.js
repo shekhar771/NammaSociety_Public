@@ -8,6 +8,7 @@ import '../Css/Component.css';
 import CustomButton from '../Components/CustomButton';
 import { getFirestore } from 'firebase/firestore';
 import { doc,collection,query, getDocs,setDoc ,addDoc} from "firebase/firestore"; 
+import { useUserAuth } from '../userAuth/UserAuth';
 
 const showTxt1 = 'Submit form ?';
 const showTxt2 = 'You are about to submit the form proceed ?';
@@ -20,41 +21,65 @@ const CreateSociety = () => {
   const getSocForm = (socInfo) => {
     setSocForm(socInfo);
   };
-  
-  // Initialize Firestore instance
-// const db = getFirestore();
-  const SocietyCreate = async () => {
+  const { user } = useUserAuth();
+  const handleSubmit = async () => {
     try {
-      
-      
-    const docRef = await addDoc(collection(db, "societies"), SocForm);
-   
-    const socId = docRef.id;
+      console.log(JSON.stringify(SocForm));
+      console.log(`Bearer ${await user.getIdToken()}`);
+      // Make a secure request to the backend API
+      const response = await fetch('http://localhost:3005/society', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${await user.getIdToken()}`,
+        },
+        body: JSON.stringify(SocForm),
+      }
+      )
 
-    // Create a document in the 'societyNames' collection with the society ID
-    await setDoc(doc(db, "societyNames", socId), { Name: SocForm.SocietyName });
-
-      setDialogOpen(false);
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
-      console.error('Error creating society:', error);
+      console.error('Error sending data to backend:', error);
     }
   };
+  // Initialize Firestore instance
+// const db = getFirestore();
+//   const SocietyCreate = async () => {
+//     try {
+      
+      
+//     const docRef = await addDoc(collection(db, "societies"), SocForm);
+   
+//     const socId = docRef.id;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
- ;
-    const querySnapshot = await getDocs(collection(db, "societies"));
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id, ' => ', doc.data());
-    });
-  } catch (error) {
-    console.error('Error fetching data: ', error);
-  }
-};
+//     // Create a document in the 'societyNames' collection with the society ID
+//     await setDoc(doc(db, "societyNames", socId), { Name: SocForm.SocietyName });
 
-fetchData();
-  }, []);
+
+//     handleSubmit(socId);
+    
+//       setDialogOpen(false);
+//     } catch (error) {
+//       console.error('Error creating society:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//  ;
+//     const querySnapshot = await getDocs(collection(db, "societies"));
+//     querySnapshot.forEach((doc) => {
+//       console.log(doc.id, ' => ', doc.data());
+//     });
+//   } catch (error) {
+//     console.error('Error fetching data: ', error);
+//   }
+// };
+
+// fetchData();
+//   }, []);
 
 //ake sure to include db in the dependency array to avoid useEffect dependencies warning
 
@@ -98,7 +123,7 @@ fetchData();
         showTxt2={showTxt2}
         btnTxt1={'yes'}
         btnTxt2={'no'}
-        btnFnc1={SocietyCreate}
+        btnFnc1={() => handleSubmit(SocForm)}
         btnFnc2={handleClose}
         open={dialogOpen}
       />

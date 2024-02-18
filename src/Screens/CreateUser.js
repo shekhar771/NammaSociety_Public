@@ -61,7 +61,7 @@ const CreateUser = () => {
       console.log(JSON.stringify(formData));
       console.log(`Bearer ${await user.getIdToken()}`);
       // Make a secure request to the backend API
-      const response = await fetch('http://localhost:3005/User', {
+      const response = await fetch('http://localhost:3005/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
