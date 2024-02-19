@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CustomPaper, HighLight, InnerDisplay } from '../Components/Wrapper';
 import BreadCrumb from '../Components/BreadCrumbs';
 import SocietyInfo from './SocietyInfo';
-import { getDatabase, ref, set, push } from 'firebase/database';
-import { database } from '../Firebase/firebaseConfig';
+import { db } from '../Firebase/firebaseConfig.js';
 import AlertDialog from '../Components/DialogueBox';
 import '../Css/Component.css';
 import CustomButton from '../Components/CustomButton';
@@ -12,16 +11,13 @@ import { doc,collection,query, getDocs,setDoc ,addDoc} from "firebase/firestore"
 import { useUserAuth } from '../userAuth/UserAuth';
 
 const showTxt1 = 'Submit form ?';
-const showTxt2 = 'You are about to submit the form porceed ?';
+const showTxt2 = 'You are about to submit the form proceed ?';
+
 const CreateSociety = () => {
-  const db = getDatabase();
-  const socKey = push(ref(db, 'societies')).key;
-  const socInfoRef = ref(db, 'societies/' + socKey);
-  const socNameRef = ref(db, 'societyNames/' + socKey);
-  // const socInfoRef = push(ref(db,'societies'))
-  // const socNameRef = ref(db,'societyNames/'+socInfoRef.key)
   const [SocForm, setSocForm] = useState('');
   const fieldStatus = Array(16).fill(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   const getSocForm = (socInfo) => {
     setSocForm(socInfo);
   };
@@ -90,8 +86,13 @@ const CreateSociety = () => {
   const handleClickOpen = () => {
     setDialogOpen(true);
   };
+
   const handleClose = () => {
     setDialogOpen(false);
+  };
+
+  const validate = () => {
+    // Implement field validation logic here
   };
 
   return (
@@ -99,12 +100,12 @@ const CreateSociety = () => {
       <BreadCrumb
         link1='Society'
         link2='Create Society'
-        path1='/Home/'
-        path2='/Home/UserUnlock'
+        path1='/Home/Society'
+        path2='/Home/Society/CreateSociety'
       />
       <CustomPaper>
         <HighLight KeyWord='Create Society' />
-        <SocietyInfo handleNewSoc={getSocForm} errorStatus={fieldStatus} />
+        <SocietyInfo handleNewSoc={getSocForm} />
       </CustomPaper>
       <div
         style={{
@@ -112,10 +113,10 @@ const CreateSociety = () => {
           width: '100%',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'center'
         }}
       >
-        <CustomButton buttonText='Create Society' onClick={handleClickOpen} />
+        <CustomButton buttonText='Create' onClick={handleClickOpen} />
       </div>
       <AlertDialog
         showTxt1={showTxt1}
@@ -129,4 +130,5 @@ const CreateSociety = () => {
     </InnerDisplay>
   );
 };
+
 export default CreateSociety;

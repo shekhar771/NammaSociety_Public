@@ -357,7 +357,6 @@
   color: #f9f9f9;
   padding: 0.5vh 1vw;
   transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Added box-shadow transition */
-  border: none;
 }
 .customModify:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

@@ -1,0 +1,311 @@
+.body {
+  background-color: white;
+}
+.data {
+  width: 989px;
+  height: 880px;
+  background: white;
+  opacity: 1;
+  position: absolute;
+  top: 200px;
+  left: 411px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.18000000715255737);
+  overflow: hidden;
+}
+.users_heading {
+  width: 83px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 226px;
+  left: 454px;
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+.admin_user_head {
+  color: rgba(160.21173030138016, 160.21173030138016, 160.21173030138016, 1);
+  width: 271px;
+  height: 23px;
+  position: absolute;
+  left: 410px;
+  top: 158px;
+  font-family: Karla;
+  text-align: left;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+.userid_text {
+  width: 98px;
+  color: rgba(90, 90, 90, 1);
+  position: absolute;
+  top: 322px;
+  left: 454px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 26px;
+  opacity: 1;
+  text-align: left;
+}
+
+.userid_input {
+  width: 628px;
+  height: 78px;
+  background-color: #e6f5f1;
+  position: absolute;
+  top: 300px;
+  left: 750px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  color: #afafaf;
+  opacity: 1;
+  text-align: left;
+  box-shadow: 5px 5px 8px 2px rgba(201, 199, 199, 0.8);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 1px solid #afafaf;
+}
+
+.v248_174 {
+  width: 212px;
+  color: rgba(160, 160, 160, 1);
+  position: absolute;
+  top: 322px;
+  left: 706px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 26px;
+  opacity: 1;
+  text-align: left;
+}
+.v248_175 {
+  width: 628px;
+  height: 78px;
+  background: rgba(230, 245, 241, 1);
+  opacity: 1;
+  position: absolute;
+  top: 418px;
+  left: 688px;
+  border: 1px solid rgba(174, 174, 174, 1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.17000000178813934);
+  overflow: hidden;
+}
+.username_text {
+  width: 145px;
+  color: rgba(90, 90, 90, 1);
+  position: absolute;
+  top: 442px;
+  left: 454px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 26px;
+  opacity: 1;
+  text-align: left;
+}
+.username_input {
+  width: 628px;
+  height: 78px;
+  background-color: #e6f5f1;
+  position: absolute;
+  top: 420px;
+  left: 750px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  color: #afafaf;
+  opacity: 1;
+  text-align: left;
+  box-shadow: 5px 5px 8px 2px rgba(201, 199, 199, 0.8);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 1px solid #afafaf;
+}
+.password_text {
+  width: 128px;
+  color: rgba(90, 90, 90, 1);
+  position: absolute;
+  top: 562px;
+  left: 454px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 26px;
+  opacity: 1;
+  text-align: left;
+}
+.password_input {
+  width: 628px;
+  height: 78px;
+  background-color: #e6f5f1;
+  position: absolute;
+  top: 540px;
+  left: 750px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  color: #afafaf;
+  opacity: 1;
+  text-align: left;
+  box-shadow: 5px 5px 8px 2px rgba(201, 199, 199, 0.8);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 1px solid #afafaf;
+}
+
+.usertype_text {
+  width: 133px;
+  color: rgba(90, 90, 90, 1);
+  position: absolute;
+  top: 682px;
+  left: 454px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 26px;
+  opacity: 1;
+  text-align: left;
+}
+
+.usertype_input {
+  width: 628px;
+  height: 78px;
+  background-color: #e6f5f1;
+  position: absolute;
+  top: 700px;
+  left: 70px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  color: #afafaf;
+  opacity: 1;
+  text-align: left;
+  box-shadow: 5px 5px 8px 2px rgba(201, 199, 199, 0.8);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 1px solid #afafaf;
+  z-index: 1;
+}
+
+.usertype {
+  height: 78px;
+  background-color: #e6f5f1;
+  top: 700px;
+  left: 50px;
+}
+
+.accesslevel_text {
+  width: 233px;
+  color: rgba(90, 90, 90, 1);
+  position: absolute;
+  top: 802px;
+  left: 454px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 26px;
+  opacity: 1;
+  text-align: left;
+}
+.accesslevel {
+  height: 78px;
+  top: 750px;
+  left: 50px;
+  z-index: 2;
+}
+/* .accesslevel_input {
+    width: 628px;
+    height: 78px;
+    background-color: #E6F5F1;
+    position: absolute;
+    top: 750px;
+    left: 70px;
+    font-family: Inter;
+    font-weight: Regular;
+    font-size: 24px;
+    color: #AFAFAF;
+    opacity: 1;
+    text-align: left;
+    box-shadow: 5px 5px 8px 2px rgba(201, 199, 199, 0.8);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid #AFAFAF;
+    z-index: 1;
+  } */
+.searchbtn_position {
+  position: absolute;
+  top: 980px;
+  left: 625px;
+}
+
+.search_btn {
+  width: 180px;
+  height: 60px;
+  background-color: #bfe4ff;
+  opacity: 1;
+  position: absolute;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: Outfit;
+  color: #39386a;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border: none;
+  overflow: hidden;
+}
+
+.search_btn:hover {
+  background-color: #39386a;
+  color: #bfe4ff;
+}
+.resetbtn_position {
+  position: absolute;
+  top: 980px;
+  left: 950px;
+}
+
+.reset_btn {
+  width: 180px;
+  height: 60px;
+  background-color: #bfe4ff;
+  opacity: 1;
+  position: absolute;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: Outfit;
+  color: #39386a;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border: none;
+  overflow: hidden;
+}
+
+.reset_btn:hover {
+  background-color: #39386a;
+  color: #bfe4ff;
+}
+
+.userInfo{
+  background-color: aqua;
+  width: 80%;
+  height: fit-content;
+  margin-top: 20px;
+  display: flex;
+
+}

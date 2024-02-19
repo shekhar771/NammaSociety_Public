@@ -10,7 +10,7 @@ import { List } from '@mui/material';
 import { BsBuildingFill } from "react-icons/bs";
 import { useUserAuth } from "../userAuth/UserAuth";
 import { getDataGridUtilityClass } from '@mui/x-data-grid';
-import { getDatabase , ref, child, onValue} from 'firebase/database';
+// import { getDatabase , ref, child, onValue} from 'firebase/database';
 
 const Dashboard = ({username, userType }) => {
 
@@ -19,31 +19,31 @@ const Dashboard = ({username, userType }) => {
       setYear(event.target.value)
   }
   const [db_Socs,setDbSoc] = React.useState([])
-  const db =  getDatabase();
-  const Soc_list = ref(db ,'Society/' );
-  const {user,logOut} = useUserAuth();
-  const user_Data = ref(db,'Users/'+user.uid)
-  const [DashDetail , setDashDetail] = useState('')
+  // const db =  getDatabase();
+  // const Soc_list = ref(db ,'Society/' );
+  // const {user,logOut} = useUserAuth();
+  // const user_Data = ref(db,'Users/'+user.uid)
+  // const [DashDetail , setDashDetail] = useState('')
 
   useEffect(()=>{
-    onValue(Soc_list,(snapshot)=>{
-      const data  =  snapshot.val()
-      setDbSoc(data)
-    })
+  //   onValue(Soc_list,(snapshot)=>{
+  //     const data  =  snapshot.val()
+      setDbSoc("soc1")
+  //   })
   },[])
 
-  useEffect(()=>{
-    onValue(user_Data,(snapshot)=>{
-      const data = snapshot.val()
-      setDashDetail(data)
-      console.log(data)
-    })
-  },[])
+  // useEffect(()=>{
+  //   onValue(user_Data,(snapshot)=>{
+  //     const data = snapshot.val()
+  //     setDashDetail(data)
+  //     console.log(data)
+  //   })
+  // },[])
 
   const [seleSoc ,setSeleSoc ] = React.useState("")
   const handlSeleSoc =(event)=>{
     setSeleSoc(event.target.value)
-    console.log(DashDetail)
+    // console.log(DashDetail)
   }
 
   return (

@@ -10,8 +10,8 @@ import '../Css/Component.css';
 // Import your Firebase Firestore or Realtime Database instance
 
 //----------firebase imports------
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { getDatabase, ref, update, push, set, child } from 'firebase/database';
+// import { createUserWithEmailAndPassword } from 'firebase/auth';
+// import { getDatabase, ref, update, push, set, child } from 'firebase/database';
 
 import {
   //   createUserWithEmailAndPassword, -->to be added later
@@ -36,7 +36,7 @@ const CreateUser = () => {
     userName: '',
     password: '',
     userType: '',
-    Email: '',
+    email: '',
   });
 
   //This is for Custom Button To input
@@ -149,7 +149,7 @@ const CreateUser = () => {
         <CustomInput
           label='User Email:'
           placeholder='Saroja@gmail.com'
-          onChange={(value) => handleInputChange('Email', value)}
+          onChange={(value) => handleInputChange('email', value)}
         />
         <div></div>
         <CustomInputPassword
